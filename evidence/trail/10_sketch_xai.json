@@ -1,0 +1,72 @@
+{
+  "cost_usd": 0.08,
+  "error": null,
+  "failed_attempts": [],
+  "finished": "2026-10-15T11:56:27.259Z",
+  "kind": "sketch",
+  "lab": "xai",
+  "model": "x-ai/grok-imagine-image-quality",
+  "n": 10,
+  "output": {
+    "image": {
+      "bytes": 481095,
+      "file": "sketch_xai.png",
+      "sha256": "c9d0c49249896c751b8ccbe95f8a7931dc514540a5b0a83b99374f558df14b24"
+    }
+  },
+  "request": {
+    "aspect_ratio": "1:1",
+    "input_references": [
+      {
+        "bytes": 353979,
+        "mime": "image/png",
+        "sha256": "6a9f38b76bc5c65ef3b4ba484efdf82a51da11feb5f7fdf33951715967fffbcf"
+      },
+      {
+        "bytes": 104203,
+        "mime": "image/png",
+        "sha256": "84942d3d4aaaf3eff37c7954131c898e768c69c523b9dcd61c9c6a9c71d34895"
+      },
+      {
+        "bytes": 156590,
+        "mime": "image/png",
+        "sha256": "4e673448113d111bfe0981a0e431d72f81cd2f4b038980d34e6c1a3758f86783"
+      }
+    ],
+    "model": "x-ai/grok-imagine-image-quality",
+    "n": 1,
+    "prompt": "A single full-body character centered: the bald egg-shaped pale head of Wojak with a big smooth forehead, the thin pale pink slumped body of Wojak, the big round half-closed eyes of Pepe the Frog, the enormous crooked toothy grin of Trollface, the extremely chiselled square jaw and short dark beard of Gigachad, the sharp pointed nose and blank empty cheeks of NPC Wojak, the long heavy arms of Harambe, the three legs in bright blue Nike sneakers with white swooshes of Tralalero Tralala, the wooden baseball bat of Tung Tung Tung Sahur held in one hand, and the over-the-shoulder head tilt of Doge. One creature with pale pink skin, one consistent palette of pale pink, black, white, bright blue and warm brown, full body, centered, clean confident lineart, flat colours, expressive face, on a solid single-colour background; no shadows, no gradients, no lighting effects, no floor, no background elements, no text, no watermark. One single character, full body, centered, clean lineart, flat colours, expressive face, on a solid single-colour background. No shadows, no gradients, no lighting effects, no floor, no background elements. No text, no letters, no watermark.",
+    "resolution": "1K"
+  },
+  "response": {
+    "created": 1792065375,
+    "data": [
+      {
+        "b64_sha256": "92d01b57b353b808b3a76e067afbef9b3ec83b9cfd944e7a19a8240a410dd59f",
+        "bytes": 159550,
+        "media_type": "image/jpeg"
+      }
+    ],
+    "note": "converted image/jpeg to PNG locally; b64_sha256 is the original bytes",
+    "usage": {
+      "completion_tokens": 4175,
+      "completion_tokens_details": {
+        "image_tokens": 4175,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.08,
+      "cost_details": {
+        "upstream_inference_completions_cost": 0.05,
+        "upstream_inference_cost": 0.08,
+        "upstream_inference_prompt_cost": 0.03
+      },
+      "is_byok": false,
+      "prompt_tokens": 294,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 4469
+    }
+  },
+  "started": "2026-10-15T11:56:17.052Z"
+}

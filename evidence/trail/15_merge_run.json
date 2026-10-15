@@ -1,0 +1,101 @@
+{
+  "cost_usd": 0.278819,
+  "error": null,
+  "failed_attempts": [],
+  "finished": "2026-10-15T12:01:38.852Z",
+  "kind": "merge",
+  "lab": null,
+  "model": "openai/gpt-image-2.5-sunburst",
+  "n": 15,
+  "output": {
+    "image": {
+      "bytes": 1139537,
+      "file": "final.png",
+      "sha256": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61"
+    }
+  },
+  "request": {
+    "aspect_ratio": "1:1",
+    "input_references": [
+      {
+        "bytes": 353979,
+        "mime": "image/png",
+        "sha256": "6a9f38b76bc5c65ef3b4ba484efdf82a51da11feb5f7fdf33951715967fffbcf"
+      },
+      {
+        "bytes": 104203,
+        "mime": "image/png",
+        "sha256": "84942d3d4aaaf3eff37c7954131c898e768c69c523b9dcd61c9c6a9c71d34895"
+      },
+      {
+        "bytes": 156590,
+        "mime": "image/png",
+        "sha256": "4e673448113d111bfe0981a0e431d72f81cd2f4b038980d34e6c1a3758f86783"
+      },
+      {
+        "bytes": 65562,
+        "mime": "image/png",
+        "sha256": "e7a9fd1030fa753b5ba157d3db27d6df95532ecb390b9d62c6128409ac3a5057"
+      },
+      {
+        "bytes": 225629,
+        "mime": "image/png",
+        "sha256": "bf61c4d37a1b1137e2510e90987329f263c98919c90f2ab3840a1a46b80d8746"
+      },
+      {
+        "bytes": 159236,
+        "mime": "image/png",
+        "sha256": "f92f894ba96a564dfc733e15ac9f30efd7daaa4dfc85ed2332a43d69cb14608d"
+      },
+      {
+        "bytes": 322692,
+        "mime": "image/png",
+        "sha256": "7b5960907f2a8c896400d9b9dfe6ead57055ec0cddcffdf01a38d3443c03d059"
+      },
+      {
+        "bytes": 187940,
+        "mime": "image/png",
+        "sha256": "6456742ef0866e622da150aa345cc37318187b39e4ecc6b6920645b7ff2e41e9"
+      },
+      {
+        "bytes": 89456,
+        "mime": "image/png",
+        "sha256": "9e2510a25805382f9329df444380223dffbb0b0608676f87c7b6fee8057e9153"
+      }
+    ],
+    "model": "openai/gpt-image-2.5-sunburst",
+    "n": 1,
+    "prompt": "ONE single cartoon meme character, full body, centered, one body and one face, every part fused into the body and not pasted on, no collage. Base body: the huge black-furred silverback gorilla body of Harambe with long heavy arms reaching the ground and a flat grey saddle across the broad back. Head: the Shiba Inu head of Doge with small triangular upright ears, round fluffy cheek tufts, short muzzle and black nose, covered in the same black fur as the body. Eyes: Pepe the Frog's big round eyes with large white sclera and heavy half-closed sleepy-smug upper lids. Brows: Wojak's thin tilted sad worried eyebrows drawn above the lids on the grey brow ridge. Mouth: the enormous crooked Trollface grin with a full row of big white teeth stretching past the cheeks, with a few scribbly wrinkle folds at the corners. Jaw: Gigachad's extremely chiselled square jawline with sharp cheekbones and a short black trimmed beard, directly under the grin. Skin: all bare skin on face, brow, chest and palms is NPC Wojak's flat featureless grey with no shading. Feet: three short stocky black-furred legs in a wide tripod, each wearing a bright blue Nike-style sneaker with a white swoosh like Tralalero Tralala. Accessory: Tung Tung Tung Sahur's polished warm-brown wooden baseball bat with grain rings resting on one shoulder. Pose: the body in a slight three-quarter turn, the Shiba head cocked and turned back over the shoulder like Doge, one hand holding the bat, the other knuckles on the ground. Signature feature: the bearded Gigachad jaw with a Trollface grin on a Shiba-headed gorilla standing on three blue sneakers. One consistent palette of exactly five flat colours: black fur, flat grey skin and saddle, white teeth sclera and swooshes, bright blue sneakers, warm brown bat. Style: clean character illustration, confident thin black lineart, flat colours with at most minimal flat shading, chunky clean fur tufts, expressive face, solid single-colour pale yellow background; no shadows, no gradients, no lighting effects, no floor, no background elements, no text, no logos, no watermark.\n\nReference image 1: the original Doge meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 2: the original Pepe the Frog meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 3: the original Trollface meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 4: the original Wojak meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 5: the original Gigachad meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 6: the original Harambe meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 7: the original Tralalero Tralala meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 8: the original Tung Tung Tung Sahur meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nReference image 9: the original NPC Wojak meme. Take ONLY the parts of it named in the description above and fuse them into the one new character.\nDo NOT copy any reference image as a whole and do NOT place the references side by side. Build ONE brand-new character with ONE body and ONE face that carries the named parts of each reference, fused into one consistent material and palette. Where a reference and the text disagree, the text wins.\nSquare format, clean character illustration: confident lineart, flat colours, minimal flat shading at most, solid single-colour background. No shadows, no gradients, no lighting effects, no floor, no background elements. Absolutely no text, letters or logos in the image.",
+    "quality": "max"
+  },
+  "response": {
+    "created": 1792065685,
+    "data": [
+      {
+        "b64_sha256": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61",
+        "bytes": 1139537,
+        "media_type": "image/png"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 7024,
+      "completion_tokens_details": {
+        "image_tokens": 7024,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.278819,
+      "cost_details": {
+        "upstream_inference_completions_cost": 0.21072,
+        "upstream_inference_cost": 0.278819,
+        "upstream_inference_prompt_cost": 0.068099
+      },
+      "is_byok": false,
+      "prompt_tokens": 8872,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 15896
+    }
+  },
+  "started": "2026-10-15T11:59:31.634Z"
+}

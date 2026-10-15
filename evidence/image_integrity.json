@@ -1,0 +1,15 @@
+{
+  "display_file": "images/Brakko_display.png",
+  "display_sha256": "ad469358799ebf761b56f3b05a9ce2bd4a2ee61e3223b15dbd8b0580687878d3",
+  "important": "This uploaded display PNG is not byte-identical to the original generated final.png. It is for visual illustration only. Do not claim its bytes are verified by the original provenance. For complete original verification, obtain original run output final.png and four sketches plus final_card.png with matching hashes.",
+  "match": false,
+  "missing_original_images": [
+    "final.png",
+    "final_card.png",
+    "sketch_google.png",
+    "sketch_microsoft.png",
+    "sketch_openai.png",
+    "sketch_xai.png"
+  ],
+  "run_original_final_png_expected_sha256": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61"
+}

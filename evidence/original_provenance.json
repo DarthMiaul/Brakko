@@ -1,0 +1,810 @@
+{
+ "app": {
+  "name": "MergeMeme",
+  "version": "0.7.1",
+  "mock": false,
+  "gateway": "https://openrouter.ai/api/v1"
+ },
+ "run_id": "20261015-115328-0f0104",
+ "created": "2026-10-15T11:53:28.381Z",
+ "finished": "2026-10-15T12:01:38.968Z",
+ "mock": false,
+ "characters": [
+  "Doge",
+  "Pepe the Frog",
+  "Trollface",
+  "Wojak",
+  "Gigachad",
+  "Harambe",
+  "Tralalero Tralala",
+  "Tung Tung Tung Sahur",
+  "NPC Wojak"
+ ],
+ "character_inputs": [
+  {
+   "name": "Doge",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 353979,
+    "sha256": "6a9f38b76bc5c65ef3b4ba484efdf82a51da11feb5f7fdf33951715967fffbcf"
+   }
+  },
+  {
+   "name": "Pepe the Frog",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 104203,
+    "sha256": "84942d3d4aaaf3eff37c7954131c898e768c69c523b9dcd61c9c6a9c71d34895"
+   }
+  },
+  {
+   "name": "Trollface",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 156590,
+    "sha256": "4e673448113d111bfe0981a0e431d72f81cd2f4b038980d34e6c1a3758f86783"
+   }
+  },
+  {
+   "name": "Wojak",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 65562,
+    "sha256": "e7a9fd1030fa753b5ba157d3db27d6df95532ecb390b9d62c6128409ac3a5057"
+   }
+  },
+  {
+   "name": "Gigachad",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 225629,
+    "sha256": "bf61c4d37a1b1137e2510e90987329f263c98919c90f2ab3840a1a46b80d8746"
+   }
+  },
+  {
+   "name": "Harambe",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 159236,
+    "sha256": "f92f894ba96a564dfc733e15ac9f30efd7daaa4dfc85ed2332a43d69cb14608d"
+   }
+  },
+  {
+   "name": "Tralalero Tralala",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 322692,
+    "sha256": "7b5960907f2a8c896400d9b9dfe6ead57055ec0cddcffdf01a38d3443c03d059"
+   }
+  },
+  {
+   "name": "Tung Tung Tung Sahur",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 187940,
+    "sha256": "6456742ef0866e622da150aa345cc37318187b39e4ecc6b6920645b7ff2e41e9"
+   }
+  },
+  {
+   "name": "NPC Wojak",
+   "notes": "",
+   "reference_image": {
+    "mime": "image/png",
+    "bytes": 89456,
+    "sha256": "9e2510a25805382f9329df444380223dffbb0b0608676f87c7b6fee8057e9153"
+   }
+  }
+ ],
+ "labs": [
+  "openai",
+  "google",
+  "meta",
+  "xai",
+  "anthropic",
+  "microsoft",
+  "nvidia"
+ ],
+ "lab_models": {
+  "openai": {
+   "text": "openai/gpt-6.1-sol-pro",
+   "image": "openai/gpt-image-2.5-sunburst"
+  },
+  "google": {
+   "text": "google/gemini-4-argon",
+   "image": "google/gemini-3-pro-image"
+  },
+  "meta": {
+   "text": "meta/muse-wonder",
+   "image": "meta/muse-image"
+  },
+  "xai": {
+   "text": "x-ai/grok-4.7",
+   "image": "x-ai/grok-imagine-image-quality"
+  },
+  "anthropic": {
+   "text": "anthropic/claude-opus-5.5",
+   "image": null
+  },
+  "microsoft": {
+   "text": "microsoft/phi-4",
+   "image": "microsoft/mai-image-2.6"
+  },
+  "nvidia": {
+   "text": "nvidia/nemotron-3-ultra-550b-a55b",
+   "image": null
+  }
+ },
+ "director_model": "anthropic/claude-fable-5.1",
+ "merge_model": "openai/gpt-image-2.5-sunburst",
+ "result": {
+  "final_name": "Brakko",
+  "tagline": "Three sneakers, one jaw, zero doubts. Mostly.",
+  "caption": "Skipped leg day twice as hard. Grinned anyway.",
+  "character": {
+   "form": "A hulking Harambe silverback gorilla with a black-furred Doge Shiba head, Pepe the Frog's heavy-lidded eyes under Wojak's worried brows, a Trollface grin cut across a bearded Gigachad jaw, NPC Wojak flat grey skin, standing on Tralalero Tralala's three blue-sneakered legs and shouldering Tung Tung Tung Sahur's wooden bat.",
+   "face": "Pepe the Frog's big round white eyes with heavy half-closed upper lids give a sleepy-smug stare; thin tilted Wojak worry-brows sit just above them on a flat NPC-grey brow ridge; Doge's short black muzzle with black nose and flared cheek tufts leads down to Trollface's enormous crooked toothy grin that stretches past the cheeks, which in turn is framed by Gigachad's razor-square jaw, sharp cheekbones and short black trimmed beard. Expression: supreme unearned confidence with a tiny flicker of doubt.",
+   "body_and_colors": "Massive top-heavy gorilla torso, broad shoulders, long heavy arms reaching the ground, three short stocky legs; one material of short black fur over flat grey skin. Palette of five flat colours: black fur, flat NPC grey (skin and back saddle), white (sclera, teeth, swooshes), bright blue (sneakers) and warm brown (wooden bat only). Fur drawn in clean chunky tufts, skin perfectly flat, thin confident black outlines.",
+   "pose": "Standing tall on three sneakers in a slight three-quarter turn, Shiba head cocked back over the shoulder, bat resting on one shoulder, the other knuckles on the ground.",
+   "vibe": "Unearned supreme confidence with a hint of doubt",
+   "signature": "The chiselled bearded Gigachad jaw with a full Trollface grin on a black-furred Shiba-headed gorilla standing on three blue sneakers."
+  },
+  "base_character": "Harambe",
+  "build": [
+   {
+    "slot": "body",
+    "from_character": "Harambe",
+    "trait": "silverback gorilla build: huge dark-furred body, long heavy arms, grey silver back",
+    "how": "The entire creature is one hulking black-furred silverback gorilla torso with long knuckle-dragging arms and a flat grey saddle across the broad back; everything else grows out of this body."
+   },
+   {
+    "slot": "head",
+    "from_character": "Doge",
+    "trait": "Shiba Inu head: round fluffy cheeks, short muzzle, small triangular upright ears, black nose",
+    "how": "The gorilla's head is a round Shiba Inu head with two small triangular upright ears, flared fluffy cheek tufts and a short muzzle with a black nose, all in the same black fur as the body."
+   },
+   {
+    "slot": "pose",
+    "from_character": "Doge",
+    "trait": "head tilted and turned over the shoulder, viewed from a slight three-quarter angle",
+    "how": "The body faces slightly away while the Shiba head is cocked and turned back over the silver shoulder in the classic Doge three-quarter look."
+   },
+   {
+    "slot": "eyes",
+    "from_character": "Pepe the Frog",
+    "trait": "big round eyes with heavy half-closed upper lids and large white sclera, sleepy-smug",
+    "how": "Two big round eyes with bright white sclera and heavy drooping upper lids sit under the brow ridge, giving the sleepy-smug Pepe stare."
+   },
+   {
+    "slot": "face",
+    "from_character": "Wojak",
+    "trait": "sad furrowed brows and blank worried stare",
+    "how": "Thin tilted Wojak worry-brows are drawn on the grey brow ridge right above the heavy Pepe lids, so the smug stare carries a visible flicker of doubt."
+   },
+   {
+    "slot": "mouth",
+    "from_character": "Trollface",
+    "trait": "Trollface grin: enormous crooked grin stretching past the cheeks, a full row of big visible teeth",
+    "how": "A giant crooked grin with a full row of big square white teeth is cut across the lower muzzle, stretching wider than the fluffy cheek tufts, with a few scribbly wrinkle folds at its corners."
+   },
+   {
+    "slot": "jaw",
+    "from_character": "Gigachad",
+    "trait": "extremely chiselled square jawline and sharp cheekbones with a short dark trimmed beard",
+    "how": "Below the grin the muzzle resolves into a razor-sharp square Gigachad jaw with angular cheekbones and a tight black trimmed beard along the jawline."
+   },
+   {
+    "slot": "skin_or_palette",
+    "from_character": "NPC Wojak",
+    "trait": "flat grey skin, no colour at all",
+    "how": "All bare skin (face, brow ridge, chest, palms) is the flat featureless NPC grey with zero shading; the silver saddle on the back is the same flat grey."
+   },
+   {
+    "slot": "feet",
+    "from_character": "Tralalero Tralala",
+    "trait": "three legs each wearing a bright blue Nike-style sneaker with a white swoosh",
+    "how": "The gorilla stands on three short stocky black-furred legs, each ending in a chunky bright blue sneaker with a white swoosh, planted in a wide tripod."
+   },
+   {
+    "slot": "accessory",
+    "from_character": "Tung Tung Tung Sahur",
+    "trait": "a wooden baseball bat held in one hand",
+    "how": "One long gorilla arm rests a polished warm-brown wooden baseball bat with visible grain rings over the shoulder; the other knuckles touch the ground."
+   }
+  ],
+  "name_rejected": []
+ },
+ "prompt_template_sha256": {
+  "council_system": "057c7023fad517207c254cc3a8ea6bb58c51b9580eb4ccccfe2849a7350055dd",
+  "council_user": "815bc169ccaf3fc3093dd564ecf38a8cebc9558e215e37eb0d1ce1ac420f191b",
+  "director_system": "26103e961ff56151b7a658183d4ca992043e74cc57c9653698ef10b91e9e0168",
+  "director_user": "8f1e39ec99f869b38e35078810f449148408103d5c18eaff075b6d655cccee68"
+ },
+ "steps": [
+  {
+   "n": 1,
+   "kind": "setup",
+   "lab": null,
+   "model": null,
+   "file": "trail/01_setup_run.json",
+   "sha256": "6f1ca0d7dcf56e7ab9ae78b08333a1d7b7e400d593b3dfd92ae68419cdfdd41f",
+   "chain": "1a0fae4e2de8524c129b5f20c3b65cb3e663b88d76afdc41fb11b3b66d7eee32",
+   "started": "2026-10-15T11:53:28.381Z",
+   "finished": "2026-10-15T11:53:28.393Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": null,
+   "cost_usd": 0.0,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 2,
+   "kind": "council",
+   "lab": "microsoft",
+   "model": "microsoft/phi-4",
+   "file": "trail/02_council_microsoft.json",
+   "sha256": "043016e61d7eb369e31e5d2298b65f531ed6fcac8831074fda51d78a06140384",
+   "chain": "40bbfe37656340395701ae48893b3b3830f55cc210c79579d830a1aedef01890",
+   "started": "2026-10-15T11:53:28.399Z",
+   "finished": "2026-10-15T11:53:36.361Z",
+   "generation_id": "gen-1792065196-yguuyz1uqRVqBNGJheBo",
+   "provider": "DeepInfra",
+   "usage": {
+    "prompt_tokens": 1863,
+    "completion_tokens": 786,
+    "total_tokens": 2649,
+    "cost": 0.00024045,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00024045,
+     "upstream_inference_prompt_cost": 0.00013041,
+     "upstream_inference_completions_cost": 0.00011004
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.00024045,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 3,
+   "kind": "council",
+   "lab": "nvidia",
+   "model": "nvidia/nemotron-3-ultra-550b-a55b",
+   "file": "trail/03_council_nvidia.json",
+   "sha256": "fde82c2879b7040b29b9a15a5155bf87fef53bad5c5e7d021f9b2fa2299fe039",
+   "chain": "77e0aa1ace79c1bcc5c0f32cddb18d3a7d90c334b555459890b6e2b3c51a65f3",
+   "started": "2026-10-15T11:53:28.400Z",
+   "finished": "2026-10-15T11:53:39.452Z",
+   "generation_id": "gen-1792065196-skDBLX0DJW1EuhHOtBmm",
+   "provider": "DeepInfra",
+   "usage": {
+    "prompt_tokens": 1925,
+    "completion_tokens": 1486,
+    "total_tokens": 3411,
+    "cost": 0.0042317,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0042317,
+     "upstream_inference_prompt_cost": 0.0009625,
+     "upstream_inference_completions_cost": 0.0032692
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.0042317,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 4,
+   "kind": "council",
+   "lab": "google",
+   "model": "google/gemini-4-argon",
+   "file": "trail/04_council_google.json",
+   "sha256": "3d8f69e4bc5c5e34142d9cdf47c38c84eb03b93b08467e6f0f87bffeb4f55fc0",
+   "chain": "1fe71b087c9df60b312d742d02a833b39a72e4a480bd5d461ada8cef7261512f",
+   "started": "2026-10-15T11:53:28.395Z",
+   "finished": "2026-10-15T11:53:51.466Z",
+   "generation_id": "gen-1792065197-DEMYppNdtEb9Md1UOfaV",
+   "provider": "Google",
+   "usage": {
+    "prompt_tokens": 1901,
+    "completion_tokens": 1768,
+    "total_tokens": 3669,
+    "cost": 0.021482,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.021482,
+     "upstream_inference_prompt_cost": 0.003802,
+     "upstream_inference_completions_cost": 0.01768
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.021482,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 5,
+   "kind": "council",
+   "lab": "meta",
+   "model": "meta/muse-wonder",
+   "file": "trail/05_council_meta.json",
+   "sha256": "e144a91a2648a9cdf0944de5853de7df9fc7ec74b01e12b7d564a7f064d8399d",
+   "chain": "8b82046ed06f6e28714cb4a9dee58b134b6f5b241951a88df845194f758302a4",
+   "started": "2026-10-15T11:53:28.396Z",
+   "finished": "2026-10-15T11:54:17.028Z",
+   "generation_id": "gen-1792065196-qT1YAAP8D7UzLuuuWU0K",
+   "provider": "Meta",
+   "usage": {
+    "prompt_tokens": 1867,
+    "completion_tokens": 4558,
+    "total_tokens": 6425,
+    "cost": 0.098628,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.098628,
+     "upstream_inference_prompt_cost": 0.007468,
+     "upstream_inference_completions_cost": 0.09116
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 3142,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.098628,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 6,
+   "kind": "council",
+   "lab": "openai",
+   "model": "openai/gpt-6.1-sol-pro",
+   "file": "trail/06_council_openai.json",
+   "sha256": "cc861e0748008ef748bad75968b84f95c6c99fdbdbf1cf72b0c9c92bd25d00ab",
+   "chain": "44ccf92a62db4a5238a93393f24c693b8aa20eb8581a894f51e44c1bbd58f4eb",
+   "started": "2026-10-15T11:53:28.395Z",
+   "finished": "2026-10-15T11:54:37.565Z",
+   "generation_id": "gen-1792065196-ueIkCknsiOo3dMImUczW",
+   "provider": "OpenAI",
+   "usage": {
+    "prompt_tokens": 11861,
+    "completion_tokens": 5209,
+    "total_tokens": 17070,
+    "cost": 0.073243,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1835,
+     "cache_write_tokens": 1835,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.073243,
+     "upstream_inference_prompt_cost": 0.021153,
+     "upstream_inference_completions_cost": 0.05209
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 2208,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.073243,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 7,
+   "kind": "council",
+   "lab": "anthropic",
+   "model": "anthropic/claude-opus-5.5",
+   "file": "trail/07_council_anthropic.json",
+   "sha256": "fc32b106d95f513b9618b4e7367cfa92d273fab9537e35266fef52cb4f1f9315",
+   "chain": "7bb28c4c542af22538cb7b85126972dff3e143a26d7ba283dcc900d8beb5d9ef",
+   "started": "2026-10-15T11:53:28.398Z",
+   "finished": "2026-10-15T11:55:11.419Z",
+   "generation_id": "gen-1792065260-9eQyWRCqTgdZ5xeWvLRr",
+   "provider": "Claude Platform on AWS",
+   "usage": {
+    "prompt_tokens": 2912,
+    "completion_tokens": 3793,
+    "total_tokens": 6705,
+    "cost": 0.087508,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.087508,
+     "upstream_inference_prompt_cost": 0.011648,
+     "upstream_inference_completions_cost": 0.07586
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1647,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.219156,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 8,
+   "kind": "council",
+   "lab": "xai",
+   "model": "x-ai/grok-4.7",
+   "file": "trail/08_council_xai.json",
+   "sha256": "2645124565d392a03bd3066aa9f779b3c5c554f15f82e0c7e5b2c33f9d737596",
+   "chain": "53de3a743153817e228e2ca9f2907773c98a05699b19512faebd976edf7416ff",
+   "started": "2026-10-15T11:53:28.397Z",
+   "finished": "2026-10-15T11:56:16.930Z",
+   "generation_id": "gen-1792065196-4RvhtexKh1gWVipZlRiD",
+   "provider": "xAI",
+   "usage": {
+    "prompt_tokens": 3130,
+    "completion_tokens": 13652,
+    "total_tokens": 16782,
+    "cost": 0.086444,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1152,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.086444,
+     "upstream_inference_prompt_cost": 0.004532,
+     "upstream_inference_completions_cost": 0.081912
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 12476,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.086444,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 9,
+   "kind": "sketch",
+   "lab": "meta",
+   "model": "meta/muse-image",
+   "file": "trail/09_sketch_meta.json",
+   "sha256": "5d87d19236c2137f1f294b8aa781a605518d7c307fa13e1ffb1395fcc5196f0d",
+   "chain": "1c42aaac26014e264d92c2d484b3369b15a32b21bf0b6f9fc03b5db42161711d",
+   "started": "2026-10-15T11:56:17.051Z",
+   "finished": "2026-10-15T11:56:17.675Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": null,
+   "cost_usd": 0.0,
+   "error": "all image models failed: meta/muse-image: no active endpoint",
+   "image": null
+  },
+  {
+   "n": 10,
+   "kind": "sketch",
+   "lab": "xai",
+   "model": "x-ai/grok-imagine-image-quality",
+   "file": "trail/10_sketch_xai.json",
+   "sha256": "1d81f403ee78194580ce8434e8ffde7d8eeab6c537589dd743fa4d52e16b5d5e",
+   "chain": "3a2a2f9dec3f5bc591bb3c3ace6fbde0d5dda24441cfc394fde96485c2721b79",
+   "started": "2026-10-15T11:56:17.052Z",
+   "finished": "2026-10-15T11:56:27.259Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": {
+    "prompt_tokens": 294,
+    "completion_tokens": 4175,
+    "total_tokens": 4469,
+    "cost": 0.08,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.08,
+     "upstream_inference_prompt_cost": 0.03,
+     "upstream_inference_completions_cost": 0.05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 4175
+    }
+   },
+   "cost_usd": 0.08,
+   "error": null,
+   "image": {
+    "file": "sketch_xai.png",
+    "sha256": "c9d0c49249896c751b8ccbe95f8a7931dc514540a5b0a83b99374f558df14b24",
+    "bytes": 481095
+   }
+  },
+  {
+   "n": 11,
+   "kind": "sketch",
+   "lab": "google",
+   "model": "google/gemini-3-pro-image",
+   "file": "trail/11_sketch_google.json",
+   "sha256": "0ad29668d481b6894badc6b4da4fdefdb74291a24b9d5fdc95271145266b8749",
+   "chain": "97d7cf65e60ae563e22802d0c5ffc0833d561ccf0d12d837777730c639244f7b",
+   "started": "2026-10-15T11:56:17.050Z",
+   "finished": "2026-10-15T11:56:42.377Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": {
+    "prompt_tokens": 5389,
+    "completion_tokens": 1120,
+    "total_tokens": 6509,
+    "cost": 0.145178,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.145178,
+     "upstream_inference_prompt_cost": 0.010778,
+     "upstream_inference_completions_cost": 0.1344
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 1120
+    }
+   },
+   "cost_usd": 0.145178,
+   "error": null,
+   "image": {
+    "file": "sketch_google.png",
+    "sha256": "f765976470c75d15f7ce4efb849f11ae676d5244a157ee698267a60184fdb855",
+    "bytes": 1064934
+   }
+  },
+  {
+   "n": 12,
+   "kind": "sketch",
+   "lab": "microsoft",
+   "model": "microsoft/mai-image-2.6",
+   "file": "trail/12_sketch_microsoft.json",
+   "sha256": "5ebb3b379a022dd93a8d60eb46df2f83a6142849f6ff9b4d6af35c6dc8188e66",
+   "chain": "04f548e7be325f1b5b176669fef536c8fbbaf022bd7ceafe2775ff4461943325",
+   "started": "2026-10-15T11:56:17.053Z",
+   "finished": "2026-10-15T11:56:50.998Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": {
+    "prompt_tokens": 2035,
+    "completion_tokens": 1024,
+    "total_tokens": 3059,
+    "cost": 0.053911,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.053911,
+     "upstream_inference_prompt_cost": 0.014999,
+     "upstream_inference_completions_cost": 0.038912
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 1024
+    }
+   },
+   "cost_usd": 0.053911,
+   "error": null,
+   "image": {
+    "file": "sketch_microsoft.png",
+    "sha256": "b903bfaf97018c6659540c0e99ffc1bcd85bef9cf52613e7309a251ac6f6459a",
+    "bytes": 884634
+   }
+  },
+  {
+   "n": 13,
+   "kind": "sketch",
+   "lab": "openai",
+   "model": "openai/gpt-image-2.5-sunburst",
+   "file": "trail/13_sketch_openai.json",
+   "sha256": "4b5d33d49cc9e8caa6c9516361b2829abc07fbf0dbfa535369d81d03d87d31c4",
+   "chain": "70e24a5d38d04311c77bca6195213acd7e9b70d7d955964a9560ef3a154a47a1",
+   "started": "2026-10-15T11:56:17.050Z",
+   "finished": "2026-10-15T11:58:19.000Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": {
+    "prompt_tokens": 8450,
+    "completion_tokens": 7024,
+    "total_tokens": 15474,
+    "cost": 0.276709,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.276709,
+     "upstream_inference_prompt_cost": 0.065989,
+     "upstream_inference_completions_cost": 0.21072
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 7024
+    }
+   },
+   "cost_usd": 0.276709,
+   "error": null,
+   "image": {
+    "file": "sketch_openai.png",
+    "sha256": "83d97c87de23d6881b6ccb422a04db87a2b474a0f3d0cc43149fe346eea94b31",
+    "bytes": 1011624
+   }
+  },
+  {
+   "n": 14,
+   "kind": "director",
+   "lab": null,
+   "model": "anthropic/claude-fable-5.1",
+   "file": "trail/14_director_run.json",
+   "sha256": "a583fdaa85a446fd6b5e976630fc2ae8d86dc3311f5b1792dacee1ca5b7c68d7",
+   "chain": "e86107867dd1b3b69e20bd4d317a42c971efff7209cf3d068e14a8cd385aa231",
+   "started": "2026-10-15T11:58:19.004Z",
+   "finished": "2026-10-15T11:59:31.629Z",
+   "generation_id": "gen-1792065487-fHb5XzSjgqkpcUiLVsvz",
+   "provider": "Anthropic",
+   "usage": {
+    "prompt_tokens": 18507,
+    "completion_tokens": 5873,
+    "total_tokens": 24380,
+    "cost": 0.47872,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.47872,
+     "upstream_inference_prompt_cost": 0.18507,
+     "upstream_inference_completions_cost": 0.29365
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 1918,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "cost_usd": 0.47872,
+   "error": null,
+   "image": null
+  },
+  {
+   "n": 15,
+   "kind": "merge",
+   "lab": null,
+   "model": "openai/gpt-image-2.5-sunburst",
+   "file": "trail/15_merge_run.json",
+   "sha256": "ad990bccf2d84effcd5870325c1347e6562976513db79467d35bc91a4ebe5d62",
+   "chain": "7189f70a344ba78dbf4410b9241f3c5af2a0d053825b09371f4704568273a42e",
+   "started": "2026-10-15T11:59:31.634Z",
+   "finished": "2026-10-15T12:01:38.852Z",
+   "generation_id": null,
+   "provider": null,
+   "usage": {
+    "prompt_tokens": 8872,
+    "completion_tokens": 7024,
+    "total_tokens": 15896,
+    "cost": 0.278819,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.278819,
+     "upstream_inference_prompt_cost": 0.068099,
+     "upstream_inference_completions_cost": 0.21072
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 7024
+    }
+   },
+   "cost_usd": 0.278819,
+   "error": null,
+   "image": {
+    "file": "final.png",
+    "sha256": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61",
+    "bytes": 1139537
+   }
+  }
+ ],
+ "files": {
+  "final.png": {
+   "sha256": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61",
+   "bytes": 1139537
+  },
+  "final_card.png": {
+   "sha256": "d05b07d7d8f51f4193030e6ea6495849b1335bde74a1ade355b107810be0efac",
+   "bytes": 1034167
+  },
+  "sketch_google.png": {
+   "sha256": "f765976470c75d15f7ce4efb849f11ae676d5244a157ee698267a60184fdb855",
+   "bytes": 1064934
+  },
+  "sketch_microsoft.png": {
+   "sha256": "b903bfaf97018c6659540c0e99ffc1bcd85bef9cf52613e7309a251ac6f6459a",
+   "bytes": 884634
+  },
+  "sketch_openai.png": {
+   "sha256": "83d97c87de23d6881b6ccb422a04db87a2b474a0f3d0cc43149fe346eea94b31",
+   "bytes": 1011624
+  },
+  "sketch_xai.png": {
+   "sha256": "c9d0c49249896c751b8ccbe95f8a7931dc514540a5b0a83b99374f558df14b24",
+   "bytes": 481095
+  }
+ },
+ "final_chain": "7189f70a344ba78dbf4410b9241f3c5af2a0d053825b09371f4704568273a42e",
+ "total_cost_usd": 1.816762,
+ "how_to_verify": [
+  "python verify.py output/20261015-115328-0f0104",
+  "each trail/*.json holds the exact request (reference images as sha256) and the raw OpenRouter response",
+  "generation ids can be looked up by the key owner: GET https://openrouter.ai/api/v1/generation?id=<generation_id>",
+  "image bytes: sha256 in the trail file == sha256 of the png in this folder"
+ ]
+}

@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MergeMeme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#09090b; --paper-2:#0f1012; --card:#0f1012; --ink:#f2f3f5; --muted:#80848e; --frame:rgba(255,255,255,.12); --line:rgba(255,255,255,.06);
+    --chrome:#5c5e66; --well:#151618; --well-2:#1c1d21; --head:#23a55a; --head-lit:#2ecc71; --fill:#f2f3f5; --fill-lit:#fff;
+    --on-fill:#09090b; --phos:#23a55a; --gold:#f0b132; --alert:#f23f42; --blue:#5865f2; --rest:0 0 0 1px rgba(255,255,255,.06), 0 1px 2px #0000004d;
+    --r:4px; --rc:6px;
+    --font:"Geist","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular","Cascadia Mono",Menlo,Consolas,monospace;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { color-scheme:dark; }
+  body { font-family:var(--font); font-size:13px; line-height:1.5; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; scrollbar-color:var(--frame) transparent; scrollbar-width:thin; }
+  ::-webkit-scrollbar { width:8px; height:8px; } ::-webkit-scrollbar-thumb { background:var(--frame); border-radius:4px; }
+  button, input, select, textarea { font:inherit; color:inherit; }
+  button { cursor:pointer; background:none; border:0; }
+  button:disabled { opacity:.4; cursor:not-allowed; }
+  a { color:inherit; text-decoration:none; }
+
+  .topbar { height:48px; border-bottom:1px solid var(--line); background:rgba(15,16,18,.96); position:sticky; top:0; z-index:20; backdrop-filter:blur(8px); }
+  .topbar-in { max-width:1240px; margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; gap:14px; }
+  .brand { display:flex; align-items:center; gap:9px; font-weight:600; font-size:13.5px; letter-spacing:-.01em; }
+  .brand .box { width:26px; height:26px; border-radius:var(--r); border:1px solid var(--line); background:var(--well); display:flex; align-items:center; justify-content:center; }
+  .brand small { color:var(--muted); font-weight:400; margin-left:4px; }
+  .tb-right { margin-left:auto; display:flex; align-items:center; gap:8px; }
+  .pill { height:26px; padding:0 10px; border-radius:var(--r); border:1px solid var(--line); background:var(--well); font-size:11px; color:var(--muted); display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); }
+  .pill .dot { width:6px; height:6px; border-radius:50%; background:var(--chrome); }
+  .pill.ok .dot { background:var(--phos); } .pill.bad .dot { background:var(--alert); }
+  .btn { height:34px; padding:0 14px; border-radius:var(--r); border:1px solid var(--frame); font-size:12.5px; font-weight:500; color:var(--muted); display:inline-flex; align-items:center; gap:7px; transition:.15s; background:transparent; }
+  .btn:hover { background:var(--well); color:var(--ink); }
+  .btn.primary { background:var(--fill); color:var(--on-fill); border-color:var(--fill); font-weight:600; min-width:150px; justify-content:center; height:40px; }
+  .btn.primary:hover { background:var(--fill-lit); }
+  .btn.sm { height:28px; padding:0 10px; font-size:11.5px; }
+  .btn.ghost { border-color:var(--line); }
+
+  .wrap { max-width:1240px; margin:0 auto; padding:18px 20px 60px; display:flex; flex-direction:column; gap:14px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+  @media (max-width:980px) { .grid2 { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--line); background:var(--card); border-radius:var(--rc); padding:20px; display:flex; flex-direction:column; }
+  .card h2 { font-size:14px; font-weight:500; letter-spacing:-.005em; display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+  .card h2 .right { margin-left:auto; font-size:11px; color:var(--muted); font-weight:400; font-family:var(--mono); }
+  .steps { display:flex; gap:6px; margin-bottom:16px; }
+  .steps span { height:3px; flex:1; border-radius:999px; background:var(--line); transition:.3s; }
+  .steps span.done { background:var(--head); } .steps span.run { background:var(--head); opacity:.45; animation:pulse 1.4s infinite; }
+  @keyframes pulse { 50% { opacity:.15; } }
+  .lead { margin:-6px 0 16px; font-size:12px; line-height:1.6; color:var(--muted); }
+  h3.lbl { font-size:10px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); font-weight:400; margin:0 0 8px; display:flex; align-items:baseline; }
+  h3.lbl .cnt { margin-left:auto; font-family:var(--mono); color:var(--chrome); font-size:10px; letter-spacing:0; text-transform:none; }
+  .block + .block { margin-top:16px; }
+
+  /* search pill + inputs */
+  .search { display:flex; align-items:center; gap:8px; border-radius:var(--r); background:var(--well); padding:0 12px; height:30px; margin-bottom:8px; }
+  .search svg { width:13px; height:13px; color:var(--muted); flex:none; }
+  .search input { flex:1; background:transparent; border:0; outline:0; font-size:11.5px; color:var(--ink); }
+  .search input::placeholder { color:var(--muted); }
+  .field { width:100%; border-radius:var(--r); border:1px solid var(--frame); background:var(--card); padding:7px 10px; font-size:12.5px; color:var(--ink); outline:0; transition:.15s; }
+  .field:focus { border-color:var(--ink); } .field::placeholder { color:rgba(151,149,142,.4); }
+  textarea.field { resize:none; line-height:1.5; }
+  select.field { appearance:none; -webkit-appearance:none; padding-right:24px; background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%); background-position:calc(100% - 13px) 55%,calc(100% - 8px) 55%; background-size:5px 5px; background-repeat:no-repeat; cursor:pointer; font-size:11.5px; height:32px; padding-top:0; padding-bottom:0; }
+  select.field:disabled { opacity:.45; cursor:default; }
+  select.field option { background:var(--paper-2); }
+
+  /* character tiles (42px rows like the pair picker) */
+  .tiles { display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
+  @media (min-width:640px) { .tiles { grid-template-columns:repeat(3,1fr); } }
+  @media (min-width:1100px) { .tiles { grid-template-columns:repeat(4,1fr); } }
+  .tile { position:relative; display:flex; align-items:center; gap:8px; height:42px; padding:0 8px; border-radius:var(--r); border:1px solid var(--line); background:var(--card); color:var(--muted); text-align:left; transition:.15s; width:100%; }
+  .tile:hover { border-color:var(--frame); color:var(--ink); }
+  .tile.on { border-color:var(--blue); background:rgba(88,101,242,.08); color:var(--ink); }
+  .tile img, .tile .ph { width:18px; height:18px; border-radius:50%; object-fit:cover; flex:none; background:var(--well-2); }
+  .tile .ph { display:flex; align-items:center; justify-content:center; font-size:9px; color:var(--chrome); }
+  .tile .t { display:flex; flex-direction:column; min-width:0; flex:1; }
+  .tile .n { font-size:11px; font-weight:500; line-height:1.25; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tile .o { font-size:9px; line-height:1.25; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tile .chk { width:14px; height:14px; border-radius:50%; background:var(--blue); color:#fff; color:var(--on-fill); font-size:9px; font-weight:700; display:none; align-items:center; justify-content:center; flex:none; }
+  .tile.on .chk { display:flex; }
+  .addrow { display:flex; gap:6px; margin-top:8px; }
+  .addrow .field { flex:1; height:32px; padding-top:0; padding-bottom:0; }
+
+  /* selected list */
+  .sel { display:flex; flex-direction:column; gap:4px; }
+  .sel-row { display:grid; grid-template-columns:18px 1fr 1.2fr auto auto; gap:8px; align-items:center; height:32px; padding:0 8px; border-radius:var(--r); border:1px solid var(--line); background:var(--well); }
+  .sel-row img, .sel-row .ph { width:18px; height:18px; border-radius:50%; object-fit:cover; background:var(--well-2); }
+  .sel-row .n { font-size:11.5px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sel-row input { background:transparent; border:0; border-bottom:1px solid transparent; outline:0; font-size:11px; color:var(--ink); padding:2px 0; }
+  .sel-row input:focus { border-bottom-color:var(--frame); } .sel-row input::placeholder { color:rgba(151,149,142,.5); }
+  .seg { display:inline-flex; gap:2px; background:var(--paper); border-radius:var(--r); padding:2px; }
+  .seg button { height:20px; padding:0 9px; border-radius:3px; font-size:10.5px; font-weight:600; color:var(--muted); }
+  .seg button.on { background:var(--card); color:var(--ink); box-shadow:0 1px 2px rgb(0 0 0/.3); }
+  .x { color:var(--chrome); font-size:14px; line-height:1; padding:0 2px; } .x:hover { color:var(--alert); }
+
+  /* labs */
+  .venues { display:flex; flex-wrap:wrap; gap:8px; }
+  .venue { display:flex; align-items:center; gap:10px; height:40px; padding:0 12px 0 6px; border-radius:var(--r); border:1px solid var(--line); background:var(--card); transition:.15s; }
+  .venue:hover { border-color:var(--frame); }
+  .venue.on { border-color:var(--blue); background:rgba(88,101,242,.08); }
+  .venue .ib { width:28px; height:28px; border-radius:var(--r); border:1px solid var(--line); background:var(--paper-2); display:flex; align-items:center; justify-content:center; }
+  .venue .lg { opacity:.55; filter:grayscale(1); } .venue.on .lg { opacity:1; filter:none; }
+  .venue .nm { font-size:12.5px; font-weight:600; color:var(--ink); }
+  .logo { display:inline-block; width:16px; height:16px; background:currentColor; -webkit-mask:var(--u) no-repeat center/contain; mask:var(--u) no-repeat center/contain; flex:none; color:var(--ink); }
+  .logo.color { background:var(--u) no-repeat center/contain; -webkit-mask:none; mask:none; }
+  .logo.s { width:13px; height:13px; }
+  .mrow { display:grid; grid-template-columns:150px 1fr 1fr; gap:8px; align-items:center; padding:5px 0; border-top:1px solid var(--line); }
+  .mrow:first-child { border-top:0; }
+  .mrow .lab { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:500; }
+  .mrow .lab .ib { width:22px; height:22px; border-radius:var(--r); border:1px solid var(--line); background:var(--paper-2); display:flex; align-items:center; justify-content:center; }
+  .mrow .f { display:flex; align-items:center; gap:6px; }
+  .mrow .f .logo { color:var(--muted); }
+  .mhead { display:grid; grid-template-columns:150px 1fr 1fr; gap:8px; font-size:9.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--chrome); padding-bottom:4px; }
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .opt label { display:block; font-size:10px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); margin-bottom:5px; }
+  .opt .f { display:flex; align-items:center; gap:6px; } .opt .f .logo { color:var(--muted); }
+  .pillseg { display:inline-flex; align-items:center; gap:4px; background:var(--well); border-radius:var(--r); padding:3px; }
+  .pillseg button { height:26px; padding:0 14px; border-radius:3px; font-size:11.5px; font-weight:600; color:var(--muted); }
+  .pillseg button:hover { color:var(--ink); } .pillseg button.on { background:var(--blue); color:#fff; }
+  .foot { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); display:flex; align-items:center; gap:10px; }
+  .foot .est { font-size:11px; color:var(--muted); line-height:1.5; }
+  .foot .btn.primary { margin-left:auto; }
+  .muted { color:var(--muted); } .mono { font-family:var(--mono); } .small { font-size:11px; }
+
+  /* board + result */
+  .board { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px; }
+  .lc { border:1px solid var(--line); border-radius:var(--r); background:var(--paper-2); padding:8px; display:flex; flex-direction:column; gap:5px; min-height:72px; }
+  .lc .hd { display:flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; }
+  .lc .st { margin-left:auto; font-size:9.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--chrome); }
+  .lc .st.ok { color:var(--phos); } .lc .st.run { color:var(--gold); } .lc .st.err { color:var(--alert); }
+  .lc img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:var(--r); border:1px solid var(--line); }
+  .lc .el { font-size:10.5px; color:var(--muted); line-height:1.4; }
+  .lc .el b { color:var(--ink); font-weight:500; }
+  .lc .names { font-size:10px; color:var(--chrome); line-height:1.4; }
+  .lc .m { font-size:9px; color:var(--chrome); font-family:var(--mono); word-break:break-all; margin-top:auto; }
+  .result { display:grid; grid-template-columns:420px 1fr; gap:20px; align-items:start; }
+  @media (max-width:900px) { .result { grid-template-columns:1fr; } }
+  .result img { width:100%; border-radius:var(--r); border:1px solid var(--line); display:block; background:var(--well); }
+  .result .ph { aspect-ratio:1; border:1px dashed var(--frame); border-radius:var(--r); background:var(--well); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:11px; text-align:center; padding:20px; }
+  .name { font-size:22px; font-weight:600; letter-spacing:-.015em; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .tk { font-family:var(--mono); font-size:11.5px; color:var(--head-lit); border:1px solid rgba(35,165,90,.35); background:rgba(35,165,90,.1); border-radius:var(--r); padding:1px 8px; }
+  .tag { color:var(--muted); font-size:13px; margin-top:2px; }
+  .lore { margin-top:12px; font-size:12px; line-height:1.65; color:var(--muted); white-space:pre-wrap; }
+  .sheet { margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; font-size:11.5px; }
+  .sheet div { display:flex; flex-direction:column; padding:6px 8px; border:1px solid var(--line); border-radius:var(--r); background:var(--well); }
+  .sheet .k { font-size:9.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); margin-bottom:2px; }
+  .traits { display:flex; flex-direction:column; font-size:11.5px; }
+  .traits div { display:flex; gap:8px; padding:5px 0; border-top:1px solid var(--line); } .traits b { min-width:110px; font-weight:500; flex:none; } .traits span { color:var(--muted); }
+  .credits { display:flex; flex-direction:column; }
+  .credits div { display:flex; align-items:center; gap:8px; padding:6px 0; border-top:1px solid var(--line); font-size:11.5px; }
+  .credits div b { width:84px; display:inline-flex; align-items:center; gap:7px; font-weight:500; flex:none; }
+  .credits div span.c { color:var(--muted); }
+  .dl { display:flex; gap:6px; margin-top:12px; flex-wrap:wrap; }
+  details summary { cursor:pointer; color:var(--muted); font-size:11px; margin-top:10px; }
+  .pre { font-family:var(--mono); font-size:10.5px; white-space:pre-wrap; background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:10px; color:var(--muted); margin-top:6px; line-height:1.5; }
+
+  /* trail */
+  table.trail { width:100%; border-collapse:collapse; font-size:11px; }
+  table.trail th { text-align:left; font-size:9.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--chrome); font-weight:400; padding:0 8px 6px 0; }
+  table.trail td { padding:6px 8px 6px 0; border-top:1px solid var(--line); vertical-align:top; }
+  table.trail td.mono { font-family:var(--mono); font-size:10.5px; color:var(--muted); }
+  table.trail td a { color:var(--head); } table.trail td a:hover { text-decoration:underline; }
+  .chain { font-family:var(--mono); font-size:10.5px; color:var(--muted); margin-top:10px; word-break:break-all; }
+  .chain b { color:var(--ink); font-weight:500; }
+  .hist { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:6px; }
+  .hrow { display:flex; align-items:center; gap:8px; height:42px; padding:0 8px; border-radius:var(--r); border:1px solid var(--line); background:var(--card); text-align:left; color:var(--muted); transition:.15s; }
+  .hrow:hover { border-color:var(--frame); color:var(--ink); }
+  .hrow img, .hrow .ph { width:26px; height:26px; border-radius:var(--r); object-fit:cover; background:var(--well-2); flex:none; }
+  .hrow .t { min-width:0; display:flex; flex-direction:column; }
+  .hrow .n { font-size:11px; font-weight:500; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hrow .o { font-size:9px; color:var(--muted); font-family:var(--mono); }
+  .log { font-family:var(--mono); font-size:10.5px; line-height:1.5; color:var(--muted); max-height:180px; overflow:auto; background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:8px; white-space:pre-wrap; margin-top:12px; }
+  .err { color:var(--alert); }
+
+  /* merge animation */
+  .stage { position:relative; aspect-ratio:1; width:100%; border-radius:var(--r); border:1px solid var(--line); background:radial-gradient(circle at 50% 50%, #101a14 0%, var(--paper) 72%); overflow:hidden; }
+  .stage .arm { position:absolute; left:50%; top:50%; width:0; height:0; }
+  .stage .orb { position:absolute; left:0; top:0; width:58px; height:58px; margin:-29px 0 0 -29px; border-radius:50%; overflow:hidden; border:2px solid var(--frame); background:var(--well); box-shadow:0 4px 16px rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; }
+  .stage .orb img { width:100%; height:100%; object-fit:cover; border:0; border-radius:0; }
+  .stage .lab .orb { width:30px; height:30px; margin:-15px 0 0 -15px; border-color:var(--line); background:var(--paper-2); box-shadow:none; }
+  .stage .lab .orb .logo { color:var(--muted); width:14px; height:14px; }
+  .stage .orbit-ring { position:absolute; left:50%; top:50%; width:94%; height:94%; transform:translate(-50%,-50%); border:1px dashed rgba(35,165,90,.22); border-radius:50%; }
+  .stage .core { position:absolute; left:50%; top:50%; width:36%; height:36%; transform:translate(-50%,-50%) scale(.3); border-radius:50%; background:radial-gradient(circle, #6ee7a0 0%, #23a55a 32%, rgba(35,165,90,.28) 62%, transparent 72%); filter:blur(2px); opacity:.4; }
+  .stage .wave { position:absolute; left:50%; top:50%; width:36%; height:36%; transform:translate(-50%,-50%) scale(.2); border-radius:50%; border:3px solid var(--head-lit); opacity:0; }
+  .stage .flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+  .stage .reveal { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; border:0; border-radius:0; }
+  .stage .cap { position:absolute; left:0; right:0; bottom:12px; text-align:center; font-size:10px; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <div class="brand"><span class="box"><span class="logo s" style="--u:url('/static/logos/openrouter.svg')"></span></span>MergeMeme <small>seven labs, one meme</small></div>
+  <div class="tb-right">
+    <span class="pill" id="keyPill"><span class="dot"></span>key</span>
+    <span class="pill" id="credPill"><span class="dot"></span>credits</span>
+    <button class="btn sm" id="btnCheck">Check models</button>
+  </div>
+</div></div>
+
+<div class="wrap">
+  <div class="grid2">
+    <!-- CHARACTERS -->
+    <div class="card">
+      <h2>Pick the characters <span class="right" id="charCount">0 selected</span></h2>
+      <p class="lead">The most famous meme characters, ranked by an estimate of how many people worldwide recognise them. Every character you pick has to show up in the final meme with a real part (Doge head, Pepe lips, Wojak body, Tralalero sneakers...); hover a tile to see its signature traits. The original images go to the sketch and merge models as references.</p>
+      <div class="block">
+        <h3 class="lbl">Most famous <span class="cnt" id="fameSrc"></span></h3>
+        <div class="tiles" id="tilesTop"></div>
+      </div>
+      <div class="block">
+        <h3 class="lbl">Your own</h3>
+        <div class="addrow" style="margin-top:0"><input class="field" id="customName" placeholder="Add any character by name, e.g. Fartcoin, Bonk, your OC"><button class="btn" id="btnAdd">Add</button></div>
+      </div>
+      <div class="block">
+        <h3 class="lbl">Selected <span class="cnt" id="selHint"></span></h3>
+        <div class="sel" id="selected"></div>
+      </div>
+    </div>
+
+    <!-- MODELS -->
+    <div class="card">
+      <h2>Pick the labs and models <span class="right" id="labCount"></span></h2>
+      <p class="lead">Each lab studies the source memes, proposes an original character with a brand-new one-word name and, if it has an image model, sketches it. The director keeps the strongest ideas; the merge model renders the final character from the labs' sketches.</p>
+      <div class="block">
+        <h3 class="lbl">Labs</h3>
+        <div class="venues" id="venues"></div>
+      </div>
+      <div class="block">
+        <div class="mhead"><div>Lab</div><div>Text model</div><div>Image model</div></div>
+        <div id="mrows"></div>
+      </div>
+      <div class="block opts">
+        <div class="opt"><label>Director</label><div class="f"><span class="logo s" id="logoDirector"></span><select class="field" id="director"></select></div></div>
+        <div class="opt"><label>Merge image model</label><div class="f"><span class="logo s" id="logoMerge"></span><select class="field" id="mergeModel"></select></div></div>
+        <div class="opt"><label>Sketches</label><div class="pillseg" id="sketchSeg"><button class="on" data-v="1">Each lab draws</button><button data-v="0">Concept only</button></div></div>
+        <div class="opt"><label>Final resolution</label><div class="pillseg" id="resSeg"><button data-v="1K">1K</button><button class="on" data-v="2K">2K</button><button data-v="4K">4K</button></div></div>
+        <div class="opt"><label>Final render input</label><div class="pillseg" id="refSeg"><button class="on" data-v="sources">Source images</button><button data-v="sources_sketches">Sources + sketches</button><button data-v="none">Text only</button></div></div>
+      </div>
+      <div class="block">
+        <h3 class="lbl">Theme <span class="cnt">optional</span></h3>
+        <textarea class="field" id="notes" rows="2" placeholder="Goes to every lab. e.g. must work as a coin logo, keep it SFW"></textarea>
+      </div>
+      <div class="foot">
+        <div class="est" id="estimate"></div>
+        <button class="btn primary" id="btnRun">Run the council</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card" id="resultCard">
+    <h2>Result <button class="btn sm ghost" id="btnTestAnim" style="margin-left:4px">Test merge animation</button> <span class="right" id="jobStatus">no run yet</span></h2>
+    <div class="steps" id="steps"><span data-s="council"></span><span data-s="sketch"></span><span data-s="director"></span><span data-s="merge"></span></div>
+    <div class="result">
+      <div id="finalImg"><div class="ph">The merged character appears here. Pick at least two characters and run the council.</div></div>
+      <div>
+        <div id="directorBox"><div class="muted small">Name, tagline, character sheet and lore are written by the director model from the council's ideas.</div></div>
+        <div class="block"><h3 class="lbl">Council board</h3><div class="board" id="board"></div></div>
+      </div>
+    </div>
+    <div class="log" id="log" style="display:none"></div>
+  </div>
+
+  <!-- TRAIL -->
+  <div class="card" id="trailCard">
+    <h2>Trail <span class="right" id="trailHint">every model call, verifiable</span></h2>
+    <p class="lead">Each row is one API call written to disk before the next step starts: the exact request, the raw OpenRouter response with its generation id, and the sha256 of every image. The files chain into one hash and contain no API key, no account data and no local paths. Anyone with the folder can run <span class="mono">python verify.py output/&lt;run&gt;</span>.</p>
+    <div id="trail"><div class="muted small">No run yet.</div></div>
+  </div>
+
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let CFG = null, selected = [], currentJob = null, labState = {}, pollTimer = null;
+const LAB_LOGO = { openai:'openai', google:'google', meta:'meta', xai:'xai', anthropic:'anthropic', microsoft:'microsoft', nvidia:'nvidia' };
+const COLOR = new Set(['microsoft']);
+const logoHtml = (n, cls='') => n ? `<span class="logo ${COLOR.has(n)?'color':''} ${cls}" style="--u:url('/static/logos/${n}.svg')"></span>` : '';
+function setLogo(el, n){ el.className = 'logo s' + (COLOR.has(n) ? ' color' : ''); el.style.setProperty('--u', `url('/static/logos/${n}.svg')`); }
+function modelLogo(id){
+  if (!id) return null;
+  if (id.startsWith('openai/')) return 'openai'; if (id.startsWith('google/')) return 'gemini'; if (id.startsWith('meta')) return 'meta';
+  if (id.startsWith('x-ai/')) return 'grok'; if (id.startsWith('anthropic/')) return 'claude'; if (id.startsWith('microsoft/')) return 'microsoft';
+  if (id.startsWith('nvidia/')) return 'nvidia'; if (id.startsWith('bytedance')) return 'bytedance'; return 'openrouter';
+}
+const short = id => (id || '').split('/').pop();
+
+async function loadConfig(){
+  CFG = await (await fetch('/api/config')).json();
+  $('#keyPill').innerHTML = `<span class="dot"></span>${CFG.mock ? 'mock mode' : (CFG.has_key ? 'key \u2026' + esc(CFG.key_suffix || '') : 'key missing')}`;
+  $('#keyPill').className = 'pill ' + (CFG.has_key || CFG.mock ? 'ok' : 'bad');
+  renderTiles();
+  CFG.labs.forEach(l => labState[l.id] = { on:true, text:(CFG.text_choices[l.id]||[l.text])[0] || l.text, image:l.image || '' });
+  renderLabs();
+  const ds = $('#director'); ds.innerHTML = CFG.director_choices.map(m => `<option value="${esc(m)}" ${m===CFG.default_director?'selected':''}>${esc(m)}</option>`).join('');
+  const ms = $('#mergeModel'); ms.innerHTML = CFG.merge_choices.map(m => `<option value="${esc(m)}" ${m===CFG.default_merge?'selected':''}>${esc(m)}</option>`).join('');
+  ds.onchange = () => setLogo($('#logoDirector'), modelLogo(ds.value)); ms.onchange = () => setLogo($('#logoMerge'), modelLogo(ms.value)); ds.onchange(); ms.onchange();
+  document.querySelectorAll('.pillseg').forEach(seg => seg.querySelectorAll('button').forEach(b => b.onclick = () => { seg.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); updateEstimate(); }));
+  CFG.presets.forEach(c => toggleChar(c, true));
+  $('#btnTestAnim').onclick = testAnimation;
+  refreshCredits(); updateEstimate();
+}
+const segVal = id => $(id).querySelector('button.on').dataset.v;
+
+async function refreshCredits(){
+  try {
+    const j = await (await fetch('/api/credits')).json();
+    if (j.data){ const left = j.data.total_credits - j.data.total_usage; $('#credPill').innerHTML = `<span class="dot"></span>$${left.toFixed(2)} credits`; $('#credPill').className = 'pill ' + (left > 0.2 ? 'ok' : 'bad'); }
+    else $('#credPill').innerHTML = '<span class="dot"></span>credits n/a';
+  } catch(e){ $('#credPill').innerHTML = '<span class="dot"></span>credits n/a'; }
+}
+
+// ---- characters
+const fmtViews = n => n >= 1e9 ? (n / 1e9).toFixed(1).replace('.0','') + 'B' : n >= 1e6 ? Math.round(n / 1e6) + 'M' : String(n);
+function tileHtml(c){
+  return `<button class="tile ${selected.some(s => s.id === c.id) ? 'on' : ''}" data-id="${esc(c.id)}" title="${esc(c.name)} - est. ${c.views.toLocaleString()} people worldwide recognise it (${esc(c.note || '')})${(c.traits || []).length ? '\n\nSignature traits the labs can use:\n- ' + esc(c.traits.join('\n- ')) : ''}">
+    ${c.image ? `<img src="${c.image}" alt="" loading="lazy">` : '<span class="ph">?</span>'}
+    <span class="t"><span class="n">${esc(c.name)}</span><span class="o">#${c.rank} &middot; ~${fmtViews(c.views)} people</span></span><span class="chk">&#10003;</span></button>`;
+}
+function renderTiles(){
+  $('#tilesTop').innerHTML = CFG.presets.map(tileHtml).join('');
+  $('#fameSrc').textContent = 'estimated global recognition';
+  document.querySelectorAll('.tile').forEach(t => t.onclick = () => toggleChar(CFG.presets.find(c => c.id === t.dataset.id)));
+}
+function toggleChar(c, forceAdd){
+  const i = selected.findIndex(s => s.name.toLowerCase() === c.name.toLowerCase());
+  if (i >= 0 && !forceAdd) selected.splice(i, 1);
+  else if (i < 0) selected.push({ id:c.id || null, name:c.name, notes:'', ref:c.image || '', useRef:!!c.image });
+  renderSelected();
+}
+$('#btnAdd').onclick = () => { const v = $('#customName').value.trim(); if (v){ toggleChar({ name:v }, true); $('#customName').value=''; } };
+$('#customName').addEventListener('keydown', e => { if (e.key === 'Enter') $('#btnAdd').click(); });
+
+function renderSelected(){
+  document.querySelectorAll('.tile').forEach(t => t.classList.toggle('on', selected.some(s => s.id === t.dataset.id)));
+  const box = $('#selected'); box.innerHTML = '';
+  selected.forEach((c, i) => {
+    const d = document.createElement('div'); d.className = 'sel-row';
+    d.innerHTML = `${c.ref ? `<img src="${c.ref}" alt="">` : '<span class="ph"></span>'}<span class="n">${esc(c.name)}</span>
+      <input placeholder="note, e.g. keep the sad eyes" value="${esc(c.notes)}" data-i="${i}">
+      <span class="seg"><button class="${c.useRef && c.ref ? 'on' : ''}" data-i="${i}" data-r="1" ${c.ref ? '' : 'disabled'}>ref</button><button class="${!c.useRef || !c.ref ? 'on' : ''}" data-i="${i}" data-r="0" ${c.ref ? '' : 'disabled'}>off</button></span>
+      <span style="display:flex;gap:4px;align-items:center"><button class="btn sm ghost up" data-i="${i}" title="Upload a reference image">img</button><button class="x rm" data-i="${i}" title="Remove">&times;</button></span>`;
+    box.appendChild(d);
+  });
+  box.querySelectorAll('input').forEach(i => i.oninput = e => selected[+e.target.dataset.i].notes = e.target.value);
+  box.querySelectorAll('.seg button').forEach(b => b.onclick = e => { selected[+e.currentTarget.dataset.i].useRef = e.currentTarget.dataset.r === '1'; renderSelected(); });
+  box.querySelectorAll('.rm').forEach(b => b.onclick = e => { selected.splice(+e.currentTarget.dataset.i, 1); renderSelected(); });
+  box.querySelectorAll('.up').forEach(b => b.onclick = e => pickRef(+e.currentTarget.dataset.i));
+  $('#charCount').textContent = `${selected.length} selected`;
+  $('#selHint').textContent = `${selected.filter(s => s.useRef && s.ref).length} with reference image`;
+  updateEstimate();
+}
+function pickRef(i){
+  const inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*';
+  inp.onchange = async () => {
+    const f = inp.files[0]; if (!f) return;
+    const fd = new FormData(); fd.append('file', f);
+    const j = await (await fetch('/api/upload', { method:'POST', body:fd })).json();
+    if (j.error) return alert(j.error);
+    selected[i].ref = j.url; selected[i].useRef = true; renderSelected();
+  };
+  inp.click();
+}
+
+// ---- labs
+function renderLabs(){
+  $('#venues').innerHTML = CFG.labs.map(l => `<button class="venue ${labState[l.id].on ? 'on' : ''}" data-lab="${l.id}"><span class="ib">${logoHtml(LAB_LOGO[l.id], 'lg')}</span><span class="nm">${esc(l.name)}</span></button>`).join('');
+  document.querySelectorAll('.venue').forEach(b => b.onclick = () => { labState[b.dataset.lab].on = !labState[b.dataset.lab].on; renderLabs(); });
+  const rows = CFG.labs.filter(l => labState[l.id].on).map(l => {
+    const st = labState[l.id], tc = CFG.text_choices[l.id] || [l.text], ic = CFG.image_choices[l.id] || [];
+    return `<div class="mrow"><div class="lab"><span class="ib">${logoHtml(LAB_LOGO[l.id], 's')}</span>${esc(l.name)}</div>
+      <div class="f">${logoHtml(modelLogo(st.text), 's')}<select class="field t" data-lab="${l.id}">${tc.map(m => `<option value="${esc(m)}" ${m===st.text?'selected':''}>${esc(short(m))}</option>`).join('')}</select></div>
+      <div class="f">${ic.length ? logoHtml(modelLogo(st.image) || 'openrouter', 's') : '<span class="logo s" style="opacity:.25"></span>'}<select class="field i" data-lab="${l.id}" ${ic.length ? '' : 'disabled'}>${ic.length ? ic.map(m => `<option value="${esc(m)}" ${m===st.image?'selected':''}>${esc(short(m))}</option>`).join('') + '<option value="">none, concept only</option>' : '<option value="">no image model, concept only</option>'}</select></div></div>`;
+  });
+  $('#mrows').innerHTML = rows.join('') || '<div class="muted small" style="padding:8px 0">No lab selected.</div>';
+  document.querySelectorAll('select.t').forEach(s => s.onchange = e => { labState[e.target.dataset.lab].text = e.target.value; renderLabs(); });
+  document.querySelectorAll('select.i').forEach(s => s.onchange = e => { labState[e.target.dataset.lab].image = e.target.value; renderLabs(); });
+  $('#labCount').textContent = `${CFG.labs.filter(l => labState[l.id].on).length} of ${CFG.labs.length} labs`;
+  updateEstimate();
+}
+const labsOn = () => CFG.labs.filter(l => labState[l.id].on).map(l => l.id);
+function updateEstimate(){
+  if (!CFG) return;
+  const on = labsOn(); const sk = segVal('#sketchSeg') === '1' ? on.filter(id => labState[id].image).length : 0;
+  const res = segVal('#resSeg'); const mergeMul = res === '4K' ? 4 : res === '2K' ? 2 : 1;
+  const est = on.length * 0.02 + 0.07 + sk * 0.05 + 0.06 * mergeMul;
+  $('#estimate').innerHTML = `${selected.length} characters, ${on.length} labs, ${sk} sketches, ${res} final.<br>About <b style="color:var(--ink);font-weight:500">$${est.toFixed(2)}</b> per run, charged to your OpenRouter credits.`;
+}
+
+$('#btnCheck').onclick = async () => {
+  $('#btnCheck').disabled = true; $('#btnCheck').textContent = 'Checking...';
+  try {
+    const j = await (await fetch('/api/models/check')).json();
+    const lines = [];
+    for (const [id, v] of Object.entries(j.text)) lines.push(`${id.padEnd(10)} text  ${v.ok ? 'OK ' : 'MISSING'} ${v.model}  ($${v.usd_per_m_in}/M in, $${v.usd_per_m_out}/M out)`);
+    for (const [id, v] of Object.entries(j.image)) lines.push(`${id.padEnd(10)} image ${v.listed ? (v.endpoint ? 'OK ' : 'NO ENDPOINT') : 'MISSING'} ${v.model}  refs<=${v.max_refs}`);
+    for (const [m, v] of Object.entries(j.merge)) lines.push(`merge      ${v.listed ? (v.endpoint ? 'OK ' : 'NO ENDPOINT') : 'MISSING'} ${m}  refs<=${v.max_refs}`);
+    lines.push('');
+    for (const [id, v] of Object.entries(j.newest || {})) lines.push(`${id.padEnd(10)} newest on OpenRouter: text ${v.text || '-'} ${v.text_is_default ? '(= default)' : '(default differs)'} | image ${v.image || '-'} ${v.image_is_default === null ? '' : (v.image_is_default ? '(= default)' : '(default differs)')}`);
+    const log = $('#log'); log.style.display = 'block'; log.textContent = lines.join('\n'); $('#resultCard').scrollIntoView({ behavior:'smooth' });
+  } catch(e){ alert('check failed: ' + e); }
+  $('#btnCheck').disabled = false; $('#btnCheck').textContent = 'Check models';
+};
+
+// ---- run
+$('#btnRun').onclick = async () => {
+  if (selected.length < 2) return alert('Pick at least two characters.');
+  if (!labsOn().length) return alert('Pick at least one lab.');
+  const lab_models = {}; labsOn().forEach(id => lab_models[id] = { text:labState[id].text, image:labState[id].image || '' });
+  const body = { characters:selected.map(c => ({ id:c.id || null, name:c.name, notes:c.notes, ref:c.useRef ? c.ref : '' })), labs:labsOn(), lab_models,
+    director:$('#director').value, merge_model:$('#mergeModel').value, sketches:segVal('#sketchSeg') === '1',
+    sketch_res:'1K', merge_res:segVal('#resSeg'), merge_refs:segVal('#refSeg'), notes:$('#notes').value };
+  $('#btnRun').disabled = true; $('#btnRun').textContent = 'Running...';
+  const j = await (await fetch('/api/run', { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body) })).json();
+  if (j.error){ alert(j.error); $('#btnRun').disabled = false; $('#btnRun').textContent = 'Run the council'; return; }
+  stopAnim(); currentJob = j.job_id; $('#directorBox').innerHTML = ''; $('#finalImg').innerHTML = '<div class="ph">Council is thinking...</div>';
+  $('#resultCard').scrollIntoView({ behavior:'smooth' }); poll();
+};
+async function poll(){
+  if (!currentJob) return;
+  const r = await fetch('/api/jobs/' + currentJob); if (!r.ok){ done(); return; }
+  const job = await r.json(); render(job);
+  if (['done','error'].includes(job.status)){ done(); refreshCredits(); return; }
+  pollTimer = setTimeout(poll, 2000);
+}
+function done(){ $('#btnRun').disabled = false; $('#btnRun').textContent = 'Run the council'; }
+
+function render(job){
+  $('#jobStatus').textContent = `${job.id}  ${job.status}  $${(job.cost || 0).toFixed(4)}${job.mock ? '  mock' : ''}`;
+  const order = ['council','sketch','director','merge']; const idx = order.indexOf(job.status);
+  document.querySelectorAll('#steps span').forEach((s, i) => { s.className = job.status === 'done' || i < idx ? 'done' : (i === idx ? 'run' : ''); });
+  const labs = CFG.labs.filter(l => job.config.labs.includes(l.id));
+  $('#board').innerHTML = labs.map(l => {
+    const c = job.council[l.id], s = job.sketches[l.id];
+    const ov = (job.config.lab_models || {})[l.id] || {}; const tm = ov.text || l.text; const im = ov.image === undefined ? l.image : (ov.image || null);
+    let st = 'waiting', cls = '';
+    if (job.status === 'council' && !c){ st = 'thinking'; cls = 'run'; }
+    if (c && c.ok){ st = 'idea'; cls = 'ok'; } if (c && c.ok === false){ st = 'failed'; cls = 'err'; }
+    if (s){ if (s.ok){ st = 'sketch'; cls = 'ok'; } else if (s.skipped){ st = 'concept'; cls = ''; } else { st = 'sketch failed'; cls = 'err'; } }
+    else if (job.status === 'sketch' && im && c && c.ok){ st = 'drawing'; cls = 'run'; }
+    const d = (c && c.data) || {};
+    return `<div class="lc"><div class="hd">${logoHtml(LAB_LOGO[l.id], 's')}${esc(l.name)}<span class="st ${cls}">${st}</span></div>
+      ${s && s.ok ? `<img src="/output/${job.id}/${s.file}" alt="">` : ''}
+      ${d.concept ? `<div class="el"><b>${esc(d.concept.form || '')}</b> ${esc(d.concept.signature || '')}</div>` : ''}
+      ${d.name_ideas ? `<div class="names">${esc(d.name_ideas.join(' / '))}</div>` : ''}
+      ${c && c.error ? `<div class="el err">${esc(c.error)}</div>` : ''}
+      ${c && c.ok && c.fallback_from ? `<div class="names">text fallback after ${esc(c.fallback_from.map(f => short(f.model)).join(', '))}</div>` : ''}
+      ${s && !s.ok ? `<div class="el" style="color:${s.skipped ? 'var(--chrome)' : 'var(--gold)'}">${esc(s.error)}</div>` : ''}
+      ${s && s.ok && s.fallback_from ? `<div class="names">fallback after ${esc(s.fallback_from.map(f => short(f.model)).join(', '))}</div>` : ''}
+      <div class="m">${esc(short(tm))}${im ? ' + ' + esc(short(im)) : ''}</div></div>`;
+  }).join('');
+  const D = job.director;
+  if (D && D.ok){
+    const d = D.data;
+    $('#directorBox').innerHTML = `<div class="name">${esc(d.final_name)}</div>
+      <div class="tag">${esc(d.tagline || '')}</div>
+      ${d.character ? `<div class="sheet">${['form','face','body_and_colors','pose','vibe','signature'].filter(k => d.character[k]).map(k => `<div><span class="k">${esc(k.replace(/_/g,' '))}</span><span>${esc(d.character[k])}</span></div>`).join('')}</div>` : ''}
+      ${(d.build || []).length ? `<h3 class="lbl" style="margin-top:12px">Trait map${d.base_character ? ' <span style="opacity:.6;text-transform:none;letter-spacing:0">base body: ' + esc(d.base_character) + '</span>' : ''}</h3><div class="traits">${d.build.map(t => `<div><b>${esc(t.slot || '')}</b><span><span style="color:var(--ink)">${esc(t.from_character)}</span>: ${esc(t.trait)}${t.how ? ' <span style="opacity:.6">' + esc(t.how) + '</span>' : ''}</span></div>`).join('')}</div>${d.build_warning ? `<div class="small" style="color:var(--gold);margin-top:6px">warning: ${esc(d.build_warning)}</div>` : ''}` : ''}
+      ${(d.inherited_traits || []).length ? `<h3 class="lbl" style="margin-top:12px">Inherited traits</h3><div class="traits">${d.inherited_traits.map(t => `<div><b>${esc(t.from_character)}</b><span>${esc(t.trait)}${t.how ? ' <span style="opacity:.6">' + esc(t.how) + '</span>' : ''}</span></div>`).join('')}</div>` : ''}
+      <div class="lore">${esc(d.lore || '')}</div>
+      ${(d.name_rejected || []).length ? `<div class="muted small" style="margin-top:8px">rejected names: ${esc(d.name_rejected.map(r => r.name).join(', '))}</div>` : ''}
+      <h3 class="lbl" style="margin-top:12px">Lab credits</h3>
+      <div class="credits">${(d.credits || []).map(c => { const lid = (CFG.labs.find(l => l.name === c.lab) || {}).id; return `<div><b>${logoHtml(LAB_LOGO[lid], 's')}${esc(c.lab)}</b><span class="c">${esc(c.contribution || c.element || '')}</span></div>`; }).join('')}</div>
+      ${d.caption ? `<div class="muted small" style="margin-top:10px">Caption: "${esc(d.caption)}"</div>` : ''}
+      <details><summary>Merge prompt and director model</summary><div class="pre">${esc((job.merge && job.merge.prompt) || d.merge_prompt || '')}</div><div class="muted small mono" style="margin-top:6px">director ${esc(D.model)} gen ${esc(D.generation_id || '')}</div></details>`;
+  } else if (D && D.ok === false){
+    $('#directorBox').innerHTML = `<div class="err small">director failed: ${esc(D.error)}</div>`;
+  }
+  const M = job.merge;
+  const animActive = ANIM && ANIM.jobId === job.id && !ANIM.finished;
+  if (M && M.ok){
+    const url = `/output/${job.id}/${M.file}`;
+    if (animActive){
+      if (!ANIM.revealUrl) ANIM.reveal(url, () => { ANIM.finished = true; $('#finalImg').innerHTML = finalBlock(job); stopAnim(); });
+    } else if (!$('#finalImg').querySelector('img[data-final="' + job.id + '"]')){
+      $('#finalImg').innerHTML = finalBlock(job);
+    }
+  } else if (M && M.ok === false){
+    stopAnim(); $('#finalImg').innerHTML = `<div class="ph err">merge failed: ${esc(M.error)}</div>`;
+  } else if (job.status === 'merge'){
+    if (!animActive){
+      const imgs = labs.map(l => job.sketches[l.id]).filter(s => s && s.ok).map(s => `/output/${job.id}/${s.file}`);
+      const refs = selected.filter(c => c.useRef && c.ref).map(c => c.ref);
+      const a = startMergeAnim(imgs.length >= 2 ? imgs : refs, job.config.labs, `Merging ${imgs.length} sketches into one character...`);
+      a.jobId = job.id;
+    }
+  } else if (job.status !== 'done' && job.status !== 'error'){
+    if (!animActive) $('#finalImg').innerHTML = `<div class="ph">Working... ${job.status}</div>`;
+  }
+  renderTrail(job);
+  const log = $('#log'); log.style.display = 'block';
+  log.textContent = job.events.map(e => `${e.t.slice(11,23)} ${e.step.padEnd(9)} ${e.status.padEnd(7)} ${(e.lab || '').padEnd(10)} ${e.model || ''} ${e.message || ''} ${e.cost != null ? '$' + (+e.cost).toFixed(4) : ''} ${e.generation_id ? 'gen ' + e.generation_id : ''} ${e.final_name || ''}`).join('\n');
+  log.scrollTop = log.scrollHeight;
+}
+
+function finalBlock(job){
+  const M = job.merge;
+  return `<img src="/output/${job.id}/${M.file}" alt="final" data-final="${esc(job.id)}">
+    <div class="dl"><a href="/output/${job.id}/${M.file}" download><button class="btn sm">Download image</button></a>
+    ${job.card && job.card.ok ? `<a href="/output/${job.id}/${job.card.file}" download><button class="btn sm ghost">Download card</button></a>` : ''}
+    <a href="/output/${job.id}/provenance.json" target="_blank"><button class="btn sm ghost">provenance.json</button></a></div>
+    <div class="muted small mono" style="margin-top:8px">${esc(short(M.model))}${M.fallback_from ? ' (fallback after ' + esc(M.fallback_from.map(f => short(f.model)).join(', ')) + ')' : ''}, ${M.refs ? M.refs + ' reference images (' + esc(M.mode === 'sources_sketches' ? 'source memes + lab sketches' : M.mode === 'sources' ? 'original source memes' : 'lab sketches') + ')' : 'rendered from the text description only'}, sha256 ${esc((M.sha256 || '').slice(0,16))}</div>`;
+}
+
+// ---- merge animation: characters orbit, accelerate, spiral into a lime core, impact, reveal
+let ANIM = null;
+function startMergeAnim(imgs, labIds, caption){
+  stopAnim();
+  const host = $('#finalImg');
+  host.innerHTML = '<div class="stage"><div class="orbit-ring"></div><div class="core"></div><div class="wave"></div><div class="flash"></div><img class="reveal" alt=""><div class="cap"></div></div>';
+  const st = host.querySelector('.stage'); const S = st.clientWidth || 420; const R = S * 0.36, R2 = S * 0.47;
+  const cap = st.querySelector('.cap'); cap.textContent = caption || 'Fusing...';
+  const mk = (html, r, a, cls) => {
+    const arm = document.createElement('div'); arm.className = 'arm ' + (cls || ''); arm.style.transform = `rotate(${a}deg)`;
+    arm.innerHTML = `<div class="orb" style="transform:translateX(${r}px) rotate(${-a}deg) scale(0)">${html}</div>`; st.appendChild(arm); return arm;
+  };
+  const n = Math.max(imgs.length, 1), nl = Math.max(labIds.length, 1);
+  const arms = imgs.map((src, i) => mk(`<img src="${src}" alt="">`, R, -90 + 360 * i / n));
+  const labs = labIds.map((id, i) => mk(logoHtml(LAB_LOGO[id], 's'), R2, 360 * i / nl, 'lab'));
+  const pop = (arm, delay) => { const o = arm.querySelector('.orb'); o.animate([{ transform:o.style.transform }, { transform:o.style.transform.replace('scale(0)', 'scale(1)') }], { duration:420, delay, easing:'cubic-bezier(.2,1.4,.4,1)', fill:'forwards' }); };
+  arms.forEach((arm, i) => pop(arm, i * 90));
+  labs.forEach((arm, i) => { pop(arm, 300 + i * 60); const a = 360 * i / nl; arm.animate([{ transform:`rotate(${a}deg)` }, { transform:`rotate(${a - 360}deg)` }], { duration:16000, iterations:Infinity }); });
+  const T0 = 500 + n * 90;
+  arms.forEach((arm, i) => {
+    const a = -90 + 360 * i / n, o = arm.querySelector('.orb');
+    arm.animate([{ transform:`rotate(${a}deg)` }, { transform:`rotate(${a + 720}deg)` }], { duration:2600, delay:T0, easing:'cubic-bezier(.55,0,.9,.4)', fill:'forwards' });
+    o.animate([{ transform:`translateX(${R}px) rotate(${-a}deg) scale(1)` }, { transform:`translateX(${R * .55}px) rotate(${-a - 360}deg) scale(1.12)`, offset:.6 }, { transform:`translateX(0px) rotate(${-a - 720}deg) scale(.12)` }], { duration:2600, delay:T0, easing:'cubic-bezier(.55,0,.9,.4)', fill:'forwards' });
+  });
+  const core = st.querySelector('.core');
+  core.animate([{ transform:'translate(-50%,-50%) scale(.3)', opacity:.4 }, { transform:'translate(-50%,-50%) scale(1.15)', opacity:1 }], { duration:2600, delay:T0, easing:'ease-in', fill:'forwards' });
+  const anim = { st, impacted:false, revealUrl:null, finished:false, timer:null, onDone:null };
+  const impact = () => {
+    if (ANIM !== anim) return;
+    arms.forEach(a => a.remove());
+    st.querySelector('.flash').animate([{ opacity:0 }, { opacity:1, offset:.15 }, { opacity:0 }], { duration:700 });
+    st.querySelector('.wave').animate([{ transform:'translate(-50%,-50%) scale(.2)', opacity:.9 }, { transform:'translate(-50%,-50%) scale(3)', opacity:0 }], { duration:900, easing:'ease-out' });
+    core.animate([{ transform:'translate(-50%,-50%) scale(1.15)' }, { transform:'translate(-50%,-50%) scale(.9)' }, { transform:'translate(-50%,-50%) scale(1.1)' }], { duration:1800, iterations:Infinity, easing:'ease-in-out' });
+    cap.textContent = 'Rendering the final character...';
+    anim.impacted = true;
+    if (anim.revealUrl) doReveal(anim.revealUrl);
+  };
+  const doReveal = url => {
+    const img = st.querySelector('.reveal');
+    img.onload = () => {
+      if (ANIM !== anim) return;
+      st.querySelector('.flash').animate([{ opacity:0 }, { opacity:.9, offset:.2 }, { opacity:0 }], { duration:600 });
+      core.animate([{ opacity:1 }, { opacity:0 }], { duration:500, fill:'forwards' });
+      labs.forEach(a => a.animate([{ opacity:1 }, { opacity:0 }], { duration:500, fill:'forwards' }));
+      img.animate([{ opacity:0, transform:'scale(.6)', filter:'blur(14px)' }, { opacity:1, transform:'scale(1)', filter:'blur(0)' }], { duration:900, easing:'cubic-bezier(.2,1.2,.4,1)', fill:'forwards' });
+      cap.animate([{ opacity:1 }, { opacity:0 }], { duration:400, fill:'forwards' });
+      if (anim.onDone) setTimeout(anim.onDone, 1400);
+    };
+    img.onerror = () => { if (anim.onDone) anim.onDone(); };
+    img.src = url;
+  };
+  anim.reveal = (url, onDone) => { anim.onDone = onDone; anim.revealUrl = url; if (anim.impacted) doReveal(url); };
+  anim.timer = setTimeout(impact, T0 + 2600);
+  ANIM = anim; return anim;
+}
+function stopAnim(){ if (ANIM){ clearTimeout(ANIM.timer); ANIM = null; } }
+function testAnimation(){
+  const imgs = selected.filter(c => c.ref).map(c => c.ref);
+  if (imgs.length < 2) return alert('Pick at least two characters with an image.');
+  $('#resultCard').scrollIntoView({ behavior:'smooth' });
+  $('#jobStatus').textContent = 'animation test, no model calls';
+  const a = startMergeAnim(imgs, labsOn(), `Fusing ${imgs.length} characters with ${labsOn().length} labs...`);
+  a.jobId = 'test';
+  const url = 'https://picsum.photos/seed/' + Math.random().toString(36).slice(2, 8) + '/640';
+  const finish = u => a.reveal(u, () => { if (ANIM === a){ a.finished = true; $('#finalImg').innerHTML = `<img src="${u}" alt="test"><div class="muted small mono" style="margin-top:8px">test image from picsum.photos, not a model output</div>`; stopAnim(); } });
+  const im = new Image(); im.onload = () => finish(url); im.onerror = () => finish(imgs[0]); im.src = url;
+}
+
+function renderTrail(job){
+  const T = job.trail || [];
+  if (!T.length){ $('#trail').innerHTML = '<div class="muted small">Waiting for the first call...</div>'; return; }
+  const rows = T.map(s => {
+    const dur = s.started && s.finished ? ((new Date(s.finished) - new Date(s.started)) / 1000).toFixed(1) + 's' : '';
+    return `<tr><td class="mono">${s.n}</td><td>${esc(s.kind)}</td><td>${s.lab ? logoHtml(LAB_LOGO[s.lab], 's') + ' ' + esc(CFG.labs.find(l => l.id === s.lab)?.name || s.lab) : '<span class="muted">-</span>'}</td>
+      <td class="mono">${esc(s.model || '')}</td><td class="mono">${esc(s.generation_id || (s.error ? 'error' : ''))}</td><td class="mono">${dur}</td><td class="mono">${(s.cost_usd || 0).toFixed(4)}</td>
+      <td class="mono">${esc(s.sha256.slice(0,12))}</td><td class="mono"><a href="/output/${job.id}/${s.file}" target="_blank">json</a>${s.image ? ` <a href="/output/${job.id}/${s.image.file}" target="_blank">png</a>` : ''}</td></tr>`;
+  }).join('');
+  const last = T[T.length - 1];
+  $('#trail').innerHTML = `<table class="trail"><thead><tr><th>#</th><th>Step</th><th>Lab</th><th>Model</th><th>Generation id</th><th>Time</th><th>USD</th><th>sha256</th><th>Files</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="chain"><b>chain</b> ${esc(last.chain)}${job.status === 'done' ? ` &nbsp; <a href="/output/${job.id}/provenance.json" target="_blank" style="color:var(--head)">provenance.json</a> &nbsp; <a href="/output/${job.id}/TRAIL.md" target="_blank" style="color:var(--head)">TRAIL.md</a>` : ''}</div>
+    <div class="muted small mono" style="margin-top:6px">python verify.py output/${esc(job.id)}</div>`;
+  $('#trailHint').textContent = `${T.length} calls, ${T.filter(s => s.generation_id && !String(s.generation_id).startsWith('mock')).length} with OpenRouter generation id`;
+}
+
+loadConfig();
+</script>
+</body>
+</html>

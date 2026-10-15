@@ -1,0 +1,149 @@
+{
+  "cost_usd": 0.0,
+  "error": null,
+  "failed_attempts": [],
+  "finished": "2026-10-15T11:53:28.393Z",
+  "kind": "setup",
+  "lab": null,
+  "model": null,
+  "n": 1,
+  "output": null,
+  "request": {
+    "character_traits": "- Doge (base: Shiba Inu dog)\n    head: Shiba Inu head: round fluffy cheeks, short muzzle, small triangular upright ears, cream-and-tan fur, black nose\n    eyes: the Doge look: eyes shifted to the side in a sideways side-eye, raised inner eyebrows, calm judging stare\n    pose: head tilted and turned over the shoulder, viewed from a slight three-quarter angle\n    palette: cream, tan and white fur with a dark nose\n- Pepe the Frog (base: green cartoon frog)\n    mouth: Pepe lips: thick, wide reddish-brown lips in a flat smug line across the whole lower face\n    eyes: big round eyes with heavy half-closed upper lids and large white sclera, sleepy-smug\n    head: wide flat frog head, no neck, eyes sitting on top\n    palette: Pepe green skin with reddish-brown lips\n- Trollface (base: black-and-white scribble face)\n    mouth: Trollface grin: enormous crooked grin stretching past the cheeks, a full row of big visible teeth\n    head: lumpy, wrinkly, dented rounded head with scribbly wobbling outline\n    eyes: small squinting mischievous eyes with heavy folds under them\n    style: rough black-and-white MS-Paint scribble lineart\n- Wojak (base: pale bald cartoon man)\n    body: Wojak body: thin pale pink human body, narrow slumped shoulders, simple thin lineart, plain and sad\n    head: bald egg-shaped pale head with no hair, big smooth forehead\n    face: sad furrowed brows, tiny downturned mouth, blank worried stare\n    palette: flat pale pink skin and thin black outlines\n- Gigachad (base: black-and-white sculpted man)\n    jaw: Gigachad jaw: extremely chiselled square jawline and sharp cheekbones with a short dark trimmed beard\n    body: thick neck, massive broad shoulders and chest, sculpted muscles\n    pose: chin raised, head turned to the side in profile, confident smirk\n    style: high-contrast black-and-white, sculpted, statue-like look\n    hair: slicked-back dark hair\n- Harambe (base: silverback gorilla)\n    body: silverback gorilla build: huge dark-furred body, long heavy arms, grey silver back\n    face: calm, serious gorilla face with deep-set eyes and a heavy brow ridge\n    palette: black fur with a silver-grey back and dark grey skin\n- Tralalero Tralala (base: shark with three legs in sneakers)\n    feet: Tralalero sneakers: three legs each wearing a bright blue Nike-style sneaker with a white swoosh\n    head: grey-blue shark head with pointed snout, small black eye, open mouth with small teeth\n    body: sleek shark body with dorsal fin and tail fin, standing upright on its legs\n    palette: grey-blue shark skin, white belly, bright blue sneakers\n- Tung Tung Tung Sahur (base: walking wooden log)\n    body: Tung Tung Tung Sahur body: an upright wooden log cylinder, brown polished wood with wood-grain rings, thin wooden arms and legs\n    accessory: a wooden baseball bat held in one hand\n    eyes: huge wide round staring eyes with a creepy smile on a flat wooden face\n    palette: warm orange-brown wood tones\n- NPC Wojak (base: grey expressionless man)\n    face: NPC face: completely blank expression, two dot eyes, straight line mouth, pointed nose\n    palette: flat grey skin, no colour at all\n    head: bald grey head, simple outline, no detail",
+    "characters": [
+      {
+        "name": "Doge",
+        "notes": "",
+        "reference_image": {
+          "bytes": 353979,
+          "mime": "image/png",
+          "sha256": "6a9f38b76bc5c65ef3b4ba484efdf82a51da11feb5f7fdf33951715967fffbcf"
+        }
+      },
+      {
+        "name": "Pepe the Frog",
+        "notes": "",
+        "reference_image": {
+          "bytes": 104203,
+          "mime": "image/png",
+          "sha256": "84942d3d4aaaf3eff37c7954131c898e768c69c523b9dcd61c9c6a9c71d34895"
+        }
+      },
+      {
+        "name": "Trollface",
+        "notes": "",
+        "reference_image": {
+          "bytes": 156590,
+          "mime": "image/png",
+          "sha256": "4e673448113d111bfe0981a0e431d72f81cd2f4b038980d34e6c1a3758f86783"
+        }
+      },
+      {
+        "name": "Wojak",
+        "notes": "",
+        "reference_image": {
+          "bytes": 65562,
+          "mime": "image/png",
+          "sha256": "e7a9fd1030fa753b5ba157d3db27d6df95532ecb390b9d62c6128409ac3a5057"
+        }
+      },
+      {
+        "name": "Gigachad",
+        "notes": "",
+        "reference_image": {
+          "bytes": 225629,
+          "mime": "image/png",
+          "sha256": "bf61c4d37a1b1137e2510e90987329f263c98919c90f2ab3840a1a46b80d8746"
+        }
+      },
+      {
+        "name": "Harambe",
+        "notes": "",
+        "reference_image": {
+          "bytes": 159236,
+          "mime": "image/png",
+          "sha256": "f92f894ba96a564dfc733e15ac9f30efd7daaa4dfc85ed2332a43d69cb14608d"
+        }
+      },
+      {
+        "name": "Tralalero Tralala",
+        "notes": "",
+        "reference_image": {
+          "bytes": 322692,
+          "mime": "image/png",
+          "sha256": "7b5960907f2a8c896400d9b9dfe6ead57055ec0cddcffdf01a38d3443c03d059"
+        }
+      },
+      {
+        "name": "Tung Tung Tung Sahur",
+        "notes": "",
+        "reference_image": {
+          "bytes": 187940,
+          "mime": "image/png",
+          "sha256": "6456742ef0866e622da150aa345cc37318187b39e4ecc6b6920645b7ff2e41e9"
+        }
+      },
+      {
+        "name": "NPC Wojak",
+        "notes": "",
+        "reference_image": {
+          "bytes": 89456,
+          "mime": "image/png",
+          "sha256": "9e2510a25805382f9329df444380223dffbb0b0608676f87c7b6fee8057e9153"
+        }
+      }
+    ],
+    "director": "anthropic/claude-fable-5.1",
+    "labs": [
+      {
+        "id": "openai",
+        "image": "openai/gpt-image-2.5-sunburst",
+        "text": "openai/gpt-6.1-sol-pro"
+      },
+      {
+        "id": "google",
+        "image": "google/gemini-3-pro-image",
+        "text": "google/gemini-4-argon"
+      },
+      {
+        "id": "meta",
+        "image": "meta/muse-image",
+        "text": "meta/muse-wonder"
+      },
+      {
+        "id": "xai",
+        "image": "x-ai/grok-imagine-image-quality",
+        "text": "x-ai/grok-4.7"
+      },
+      {
+        "id": "anthropic",
+        "image": null,
+        "text": "anthropic/claude-opus-5.5"
+      },
+      {
+        "id": "microsoft",
+        "image": "microsoft/mai-image-2.6",
+        "text": "microsoft/phi-4"
+      },
+      {
+        "id": "nvidia",
+        "image": null,
+        "text": "nvidia/nemotron-3-ultra-550b-a55b"
+      }
+    ],
+    "merge_model": "openai/gpt-image-2.5-sunburst",
+    "notes": "none",
+    "prompt_templates": {
+      "council_system": "You are the official AI delegate of {lab} in the \"Merge Meme Council\".\nSeven AI labs (OpenAI, Google, Meta, xAI, Anthropic, Microsoft, NVIDIA) are fusing famous meme characters into ONE new meme character.\nThe rule of this council: the new character is built from REAL, RECOGNISABLE body parts of the source memes. Anyone who knows\nthe memes must be able to point at the picture and say \"that is Doge's head, those are Pepe's lips, that is Wojak's body,\nthose are Tralalero's sneakers\". At the same time it must be ONE coherent being: one body, one consistent colour scheme,\none silhouette, not a collage, not several faces, not a pile of parts.\nYou answer with ONE strict JSON object and nothing else. No markdown, no commentary.",
+      "council_user": "Source memes and their signature traits (slot = the body part the trait belongs to):\n{characters}\n\nYour special responsibility: make sure {custody} are unmistakably visible in the result.\nRecently produced builds by this council (try a different base body or a different combination): [REDACTED_UNRELATED_PROJECT_HISTORY]\nUser theme / notes: {notes}\n\nReturn exactly this JSON shape:\n{{\n  \"build\": [\n    {{\"slot\": \"<body part: head | eyes | mouth | jaw | face | body | arms | feet | skin_or_palette | accessory | pose | style>\", \"from_character\": \"<source meme exactly as listed>\", \"trait\": \"<the concrete visible trait, copied or adapted from the list above>\", \"how\": \"<how it is drawn on the new character, one sentence>\"}}\n  ],\n  \"base_character\": \"<which source meme gives the overall body shape and silhouette>\",\n  \"concept\": {{\n    \"form\": \"<what the new character IS in one sentence: the base body plus the parts it carries>\",\n    \"face\": \"<eyes, mouth, brows, expression; name the source meme of each part>\",\n    \"body_and_colors\": \"<body, proportions, ONE consistent palette of 3-5 colours for the whole body (the skin/fur/material is one material and one main colour), textures, outfit or accessory>\",\n    \"pose\": \"<a characteristic pose or gesture>\",\n    \"vibe\": \"<the single emotion or energy people will meme with it>\",\n    \"signature\": \"<the ONE unmistakable feature at thumbnail size>\"\n  }},\n  \"name_ideas\": [\"<invented word>\", \"<invented word>\", \"<invented word>\"],\n  \"caption\": \"<one punchy meme caption, max 10 words>\",\n  \"lore\": \"<1-2 sentences of origin lore>\",\n  \"image_prompt\": \"<a complete prompt for YOUR OWN image model. It MUST name each source meme next to its part, for example 'the head of Doge the Shiba Inu with the sideways side-eye, Pepe the Frog's thick wide reddish lips, the thin pale body of Wojak, the three legs in blue Nike sneakers of Tralalero Tralala'. Then: one single character, full body, centered, clean confident lineart, flat colours, one consistent palette, expressive face, on a solid single-colour background; no shadows, no gradients, no lighting effects, no floor, no background elements, no text, no watermark>\"\n}}\nBuild rules: EVERY source meme listed above must appear in \"build\" with at least one clearly visible trait (a shape, a part, a\ncolour, a pose), not only an attitude. Each slot is taken from exactly one source meme. Pick traits that are famous for that meme.\nThe whole must still read as one creature with one skin/material and one palette; parts are adapted to the base body, not pasted on.\nName rules: each name is ONE invented word, 4-8 letters, easy to say and spell, like 'Pepe', 'Doge', 'Wojak', 'Bonk'.\nIt must NOT contain, combine or echo any source name or a fragment of it. Portmanteaus of source names are banned.",
+      "director_system": "You are the Director of the Merge Meme Council. You receive the builds of up to seven AI labs for ONE new meme character\nfused from famous meme characters. Choose the strongest build or combine the best slot choices into one: the result must show a\nrecognisable part of EVERY source meme (head, eyes, mouth, jaw, body, feet, accessory, pose, palette...) and still be ONE coherent\nbeing with one body, one material and one consistent palette, with a brand-new one-word name. Answer with ONE strict JSON object and nothing else.",
+      "director_user": "Source memes and their signature traits:\n{characters}\n\nUser theme / notes: {notes}\nRecently produced builds by this council (prefer a different base body or combination): [REDACTED_UNRELATED_PROJECT_HISTORY]\n\nLab builds (JSON, labs anonymised as Lab A..G):\n{contribs}\n\nReturn exactly this JSON shape:\n{{\n  \"final_name\": \"<ONE invented word, 4-8 letters, pronounceable; one of the labs' ideas or a better new one; must not contain any source name fragment>\",\n  \"tagline\": \"<max 8 words>\",\n  \"base_character\": \"<the source meme that gives the overall body shape>\",\n  \"build\": [\n    {{\"slot\": \"<head | eyes | mouth | jaw | face | body | arms | feet | skin_or_palette | accessory | pose | style>\", \"from_character\": \"<source meme exactly as listed>\", \"trait\": \"<the concrete visible trait>\", \"how\": \"<how it is drawn on the final character>\"}}\n  ],\n  \"character\": {{\n    \"form\": \"<what it is in one sentence: base body plus the parts it carries, naming the source memes>\",\n    \"face\": \"<eyes, brows, mouth, expression in detail, naming the source meme of each part>\",\n    \"body_and_colors\": \"<body shape and proportions, ONE consistent palette of 3-5 colours, one skin/fur/material for the whole body, textures, outfit or accessory>\",\n    \"pose\": \"<default pose or gesture>\",\n    \"vibe\": \"<the one emotion people meme with it>\",\n    \"signature\": \"<the ONE unmistakable feature>\"\n  }},\n  \"credits\": [\n    {{\"lab\": \"<Lab A..G exactly as given>\", \"contribution\": \"<which slot choice or idea of this lab made it into the final character, or what was rejected and why>\"}}\n  ],\n  \"lore\": \"<120-180 words: who the character is, which memes it carries in which body part, why the internet needs it; mention that seven AI labs designed it together>\",\n  \"reference_labs\": [\"<Lab A..G whose sketch already looks like the final character; empty list if none does>\"],\n  \"merge_prompt\": \"<the exact image prompt for the final render. Describe the character part by part and NAME THE SOURCE MEME of each part, e.g. 'head: the Shiba Inu head of Doge with the sideways side-eye; mouth: Pepe the Frog's thick wide reddish-brown lips; body: the thin pale slumped body of Wojak; feet: three blue Nike-style sneakers like Tralalero Tralala'. State the base body, the one consistent palette, the pose and the signature feature. Style: clean character illustration, full body, centered, confident lineart, flat colours with at most minimal flat shading, solid single-colour background; no shadows, no gradients, no lighting effects, no floor, no background elements. State explicitly: ONE single character with ONE body and ONE face, parts fused into the body and not pasted on, no collage, no text, no logos.>\",\n  \"caption\": \"<one line of meme text>\"\n}}\nRules: EVERY source meme must appear in \"build\" with a visible trait; a lab build that leaves a source meme out is incomplete.\nOne slot per source meme is enough, two is the maximum; the most famous trait of each meme wins (Doge head or side-eye, Pepe lips\nor heavy lids, Trollface grin, Wojak body or bald head, Gigachad jaw, Harambe gorilla build, Tralalero sneakers, Sahur wooden log\nbody or bat, NPC grey blank face). The result must still be ONE coherent character: one body, one material, one palette.\nEvery lab must appear in credits. Fairness: the labs are anonymised as Lab A..G on purpose. Judge only the ideas.\nThe name must be a completely new word: no 'Pepe', 'Doge', 'Wojak', 'Troll', 'Giga', 'Chad', 'Harambe', 'Trala', 'Sahur', 'NPC' or parts of them inside."
+    },
+    "recent_builds": "[REDACTED_UNRELATED_PROJECT_HISTORY]"
+  },
+  "response": {
+    "app_version": "0.7.1",
+    "mock": false
+  },
+  "started": "2026-10-15T11:53:28.381Z"
+}

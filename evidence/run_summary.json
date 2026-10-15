@@ -1,0 +1,160 @@
+{
+  "concept_only": [
+    "anthropic",
+    "nvidia"
+  ],
+  "created": "2026-10-15T11:53:28.381Z",
+  "director_model": "anthropic/claude-fable-5.1",
+  "finished": "2026-10-15T12:01:38.968Z",
+  "generation_ids": {
+    "anthropic": "gen-1792065260-9eQyWRCqTgdZ5xeWvLRr",
+    "director": "gen-1792065487-fHb5XzSjgqkpcUiLVsvz",
+    "google": "gen-1792065197-DEMYppNdtEb9Md1UOfaV",
+    "meta": "gen-1792065196-qT1YAAP8D7UzLuuuWU0K",
+    "microsoft": "gen-1792065196-yguuyz1uqRVqBNGJheBo",
+    "nvidia": "gen-1792065196-skDBLX0DJW1EuhHOtBmm",
+    "openai": "gen-1792065196-ueIkCknsiOo3dMImUczW",
+    "xai": "gen-1792065196-4RvhtexKh1gWVipZlRiD"
+  },
+  "lab_models": {
+    "anthropic": {
+      "image": null,
+      "text": "anthropic/claude-opus-5.5"
+    },
+    "google": {
+      "image": "google/gemini-3-pro-image",
+      "text": "google/gemini-4-argon"
+    },
+    "meta": {
+      "image": "meta/muse-image",
+      "text": "meta/muse-wonder"
+    },
+    "microsoft": {
+      "image": "microsoft/mai-image-2.6",
+      "text": "microsoft/phi-4"
+    },
+    "nvidia": {
+      "image": null,
+      "text": "nvidia/nemotron-3-ultra-550b-a55b"
+    },
+    "openai": {
+      "image": "openai/gpt-image-2.5-sunburst",
+      "text": "openai/gpt-6.1-sol-pro"
+    },
+    "xai": {
+      "image": "x-ai/grok-imagine-image-quality",
+      "text": "x-ai/grok-4.7"
+    }
+  },
+  "labs": [
+    "openai",
+    "google",
+    "meta",
+    "xai",
+    "anthropic",
+    "microsoft",
+    "nvidia"
+  ],
+  "merge_input_mode": "sources (9 original meme images; lab sketches were not used as merge image references)",
+  "merge_model": "openai/gpt-image-2.5-sunburst",
+  "mock": false,
+  "result": {
+    "base_character": "Harambe",
+    "build": [
+      {
+        "from_character": "Harambe",
+        "how": "The entire creature is one hulking black-furred silverback gorilla torso with long knuckle-dragging arms and a flat grey saddle across the broad back; everything else grows out of this body.",
+        "slot": "body",
+        "trait": "silverback gorilla build: huge dark-furred body, long heavy arms, grey silver back"
+      },
+      {
+        "from_character": "Doge",
+        "how": "The gorilla's head is a round Shiba Inu head with two small triangular upright ears, flared fluffy cheek tufts and a short muzzle with a black nose, all in the same black fur as the body.",
+        "slot": "head",
+        "trait": "Shiba Inu head: round fluffy cheeks, short muzzle, small triangular upright ears, black nose"
+      },
+      {
+        "from_character": "Doge",
+        "how": "The body faces slightly away while the Shiba head is cocked and turned back over the silver shoulder in the classic Doge three-quarter look.",
+        "slot": "pose",
+        "trait": "head tilted and turned over the shoulder, viewed from a slight three-quarter angle"
+      },
+      {
+        "from_character": "Pepe the Frog",
+        "how": "Two big round eyes with bright white sclera and heavy drooping upper lids sit under the brow ridge, giving the sleepy-smug Pepe stare.",
+        "slot": "eyes",
+        "trait": "big round eyes with heavy half-closed upper lids and large white sclera, sleepy-smug"
+      },
+      {
+        "from_character": "Wojak",
+        "how": "Thin tilted Wojak worry-brows are drawn on the grey brow ridge right above the heavy Pepe lids, so the smug stare carries a visible flicker of doubt.",
+        "slot": "face",
+        "trait": "sad furrowed brows and blank worried stare"
+      },
+      {
+        "from_character": "Trollface",
+        "how": "A giant crooked grin with a full row of big square white teeth is cut across the lower muzzle, stretching wider than the fluffy cheek tufts, with a few scribbly wrinkle folds at its corners.",
+        "slot": "mouth",
+        "trait": "Trollface grin: enormous crooked grin stretching past the cheeks, a full row of big visible teeth"
+      },
+      {
+        "from_character": "Gigachad",
+        "how": "Below the grin the muzzle resolves into a razor-sharp square Gigachad jaw with angular cheekbones and a tight black trimmed beard along the jawline.",
+        "slot": "jaw",
+        "trait": "extremely chiselled square jawline and sharp cheekbones with a short dark trimmed beard"
+      },
+      {
+        "from_character": "NPC Wojak",
+        "how": "All bare skin (face, brow ridge, chest, palms) is the flat featureless NPC grey with zero shading; the silver saddle on the back is the same flat grey.",
+        "slot": "skin_or_palette",
+        "trait": "flat grey skin, no colour at all"
+      },
+      {
+        "from_character": "Tralalero Tralala",
+        "how": "The gorilla stands on three short stocky black-furred legs, each ending in a chunky bright blue sneaker with a white swoosh, planted in a wide tripod.",
+        "slot": "feet",
+        "trait": "three legs each wearing a bright blue Nike-style sneaker with a white swoosh"
+      },
+      {
+        "from_character": "Tung Tung Tung Sahur",
+        "how": "One long gorilla arm rests a polished warm-brown wooden baseball bat with visible grain rings over the shoulder; the other knuckles touch the ground.",
+        "slot": "accessory",
+        "trait": "a wooden baseball bat held in one hand"
+      }
+    ],
+    "caption": "Skipped leg day twice as hard. Grinned anyway.",
+    "character": {
+      "body_and_colors": "Massive top-heavy gorilla torso, broad shoulders, long heavy arms reaching the ground, three short stocky legs; one material of short black fur over flat grey skin. Palette of five flat colours: black fur, flat NPC grey (skin and back saddle), white (sclera, teeth, swooshes), bright blue (sneakers) and warm brown (wooden bat only). Fur drawn in clean chunky tufts, skin perfectly flat, thin confident black outlines.",
+      "face": "Pepe the Frog's big round white eyes with heavy half-closed upper lids give a sleepy-smug stare; thin tilted Wojak worry-brows sit just above them on a flat NPC-grey brow ridge; Doge's short black muzzle with black nose and flared cheek tufts leads down to Trollface's enormous crooked toothy grin that stretches past the cheeks, which in turn is framed by Gigachad's razor-square jaw, sharp cheekbones and short black trimmed beard. Expression: supreme unearned confidence with a tiny flicker of doubt.",
+      "form": "A hulking Harambe silverback gorilla with a black-furred Doge Shiba head, Pepe the Frog's heavy-lidded eyes under Wojak's worried brows, a Trollface grin cut across a bearded Gigachad jaw, NPC Wojak flat grey skin, standing on Tralalero Tralala's three blue-sneakered legs and shouldering Tung Tung Tung Sahur's wooden bat.",
+      "pose": "Standing tall on three sneakers in a slight three-quarter turn, Shiba head cocked back over the shoulder, bat resting on one shoulder, the other knuckles on the ground.",
+      "vibe": "Unearned supreme confidence with a hint of doubt"
+    },
+    "final_name": "Brakko",
+    "name_rejected": [],
+    "tagline": "Three sneakers, one jaw, zero doubts. Mostly."
+  },
+  "result_name": "Brakko",
+  "run_id": "20261015-115328-0f0104",
+  "selected_memes": [
+    "Doge",
+    "Pepe the Frog",
+    "Trollface",
+    "Wojak",
+    "Gigachad",
+    "Harambe",
+    "Tralalero Tralala",
+    "Tung Tung Tung Sahur",
+    "NPC Wojak"
+  ],
+  "sketches_generated": [
+    "openai",
+    "google",
+    "microsoft",
+    "xai"
+  ],
+  "sketches_skipped": [
+    "meta"
+  ],
+  "source_image_count": 9
+}

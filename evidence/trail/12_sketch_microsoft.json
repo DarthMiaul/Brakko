@@ -1,0 +1,80 @@
+{
+  "cost_usd": 0.053911,
+  "error": null,
+  "failed_attempts": [],
+  "finished": "2026-10-15T11:56:50.998Z",
+  "kind": "sketch",
+  "lab": "microsoft",
+  "model": "microsoft/mai-image-2.6",
+  "n": 12,
+  "output": {
+    "image": {
+      "bytes": 884634,
+      "file": "sketch_microsoft.png",
+      "sha256": "b903bfaf97018c6659540c0e99ffc1bcd85bef9cf52613e7309a251ac6f6459a"
+    }
+  },
+  "request": {
+    "aspect_ratio": "1:1",
+    "input_references": [
+      {
+        "bytes": 353979,
+        "mime": "image/png",
+        "sha256": "6a9f38b76bc5c65ef3b4ba484efdf82a51da11feb5f7fdf33951715967fffbcf"
+      },
+      {
+        "bytes": 104203,
+        "mime": "image/png",
+        "sha256": "84942d3d4aaaf3eff37c7954131c898e768c69c523b9dcd61c9c6a9c71d34895"
+      },
+      {
+        "bytes": 156590,
+        "mime": "image/png",
+        "sha256": "4e673448113d111bfe0981a0e431d72f81cd2f4b038980d34e6c1a3758f86783"
+      },
+      {
+        "bytes": 65562,
+        "mime": "image/png",
+        "sha256": "e7a9fd1030fa753b5ba157d3db27d6df95532ecb390b9d62c6128409ac3a5057"
+      },
+      {
+        "bytes": 225629,
+        "mime": "image/png",
+        "sha256": "bf61c4d37a1b1137e2510e90987329f263c98919c90f2ab3840a1a46b80d8746"
+      }
+    ],
+    "model": "microsoft/mai-image-2.6",
+    "n": 1,
+    "prompt": "The full body of a character with Harambe's massive build, Doge's head positioned on top with round fluffy cheeks, Pepe the Frog's eyes, Trollface's grin, a black and silver fur palette with a silver-grey back, wearing blue Nike sneakers, all in a rough black-and-white MS-Paint line art style. One single character, full body, centered, clean lineart, flat colours, expressive face, on a solid single-colour background. No shadows, no gradients, no lighting effects, no floor, no background elements. No text, no letters, no watermark."
+  },
+  "response": {
+    "created": 1792065398,
+    "data": [
+      {
+        "b64_sha256": "b903bfaf97018c6659540c0e99ffc1bcd85bef9cf52613e7309a251ac6f6459a",
+        "bytes": 884634,
+        "media_type": "image/png"
+      }
+    ],
+    "usage": {
+      "completion_tokens": 1024,
+      "completion_tokens_details": {
+        "image_tokens": 1024,
+        "reasoning_tokens": 0
+      },
+      "cost": 0.053911,
+      "cost_details": {
+        "upstream_inference_completions_cost": 0.038912,
+        "upstream_inference_cost": 0.053911,
+        "upstream_inference_prompt_cost": 0.014999
+      },
+      "is_byok": false,
+      "prompt_tokens": 2035,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "total_tokens": 3059
+    }
+  },
+  "started": "2026-10-15T11:56:17.053Z"
+}

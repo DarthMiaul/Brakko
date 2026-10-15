@@ -1,0 +1,14 @@
+{
+ "cost_usd": 0.0,
+ "error": "all image models failed: meta/muse-image: no active endpoint",
+ "failed_attempts": [],
+ "finished": "2026-10-15T11:56:17.675Z",
+ "kind": "sketch",
+ "lab": "meta",
+ "model": "meta/muse-image",
+ "n": 9,
+ "output": null,
+ "request": null,
+ "response": null,
+ "started": "2026-10-15T11:56:17.051Z"
+}

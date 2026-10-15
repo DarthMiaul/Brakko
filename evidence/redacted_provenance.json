@@ -1,0 +1,286 @@
+{
+  "created": "2026-10-15T11:53:28.381Z",
+  "critical_note": "Sanitized files have different SHA-256 digests than the originals. Their internal hash chain is recalculated and independently checkable, but the original unredacted chain cannot be independently reconstructed from this public export.",
+  "finished": "2026-10-15T12:01:38.968Z",
+  "image_expected_original_hash": "0ed5ff5485073ce89fead78f136a01594fad4b85684e5929ecb77d772b480b61",
+  "mock": false,
+  "original_chain_head_claimed": "7189f70a344ba78dbf4410b9241f3c5af2a0d053825b09371f4704568273a42e",
+  "original_raw_sha256_commitments": [
+    {
+      "chain": "1a0fae4e2de8524c129b5f20c3b65cb3e663b88d76afdc41fb11b3b66d7eee32",
+      "file": "01_setup_run.json",
+      "n": 1,
+      "sha256": "6f1ca0d7dcf56e7ab9ae78b08333a1d7b7e400d593b3dfd92ae68419cdfdd41f"
+    },
+    {
+      "chain": "40bbfe37656340395701ae48893b3b3830f55cc210c79579d830a1aedef01890",
+      "file": "02_council_microsoft.json",
+      "n": 2,
+      "sha256": "043016e61d7eb369e31e5d2298b65f531ed6fcac8831074fda51d78a06140384"
+    },
+    {
+      "chain": "77e0aa1ace79c1bcc5c0f32cddb18d3a7d90c334b555459890b6e2b3c51a65f3",
+      "file": "03_council_nvidia.json",
+      "n": 3,
+      "sha256": "fde82c2879b7040b29b9a15a5155bf87fef53bad5c5e7d021f9b2fa2299fe039"
+    },
+    {
+      "chain": "1fe71b087c9df60b312d742d02a833b39a72e4a480bd5d461ada8cef7261512f",
+      "file": "04_council_google.json",
+      "n": 4,
+      "sha256": "3d8f69e4bc5c5e34142d9cdf47c38c84eb03b93b08467e6f0f87bffeb4f55fc0"
+    },
+    {
+      "chain": "8b82046ed06f6e28714cb4a9dee58b134b6f5b241951a88df845194f758302a4",
+      "file": "05_council_meta.json",
+      "n": 5,
+      "sha256": "e144a91a2648a9cdf0944de5853de7df9fc7ec74b01e12b7d564a7f064d8399d"
+    },
+    {
+      "chain": "44ccf92a62db4a5238a93393f24c693b8aa20eb8581a894f51e44c1bbd58f4eb",
+      "file": "06_council_openai.json",
+      "n": 6,
+      "sha256": "cc861e0748008ef748bad75968b84f95c6c99fdbdbf1cf72b0c9c92bd25d00ab"
+    },
+    {
+      "chain": "7bb28c4c542af22538cb7b85126972dff3e143a26d7ba283dcc900d8beb5d9ef",
+      "file": "07_council_anthropic.json",
+      "n": 7,
+      "sha256": "fc32b106d95f513b9618b4e7367cfa92d273fab9537e35266fef52cb4f1f9315"
+    },
+    {
+      "chain": "53de3a743153817e228e2ca9f2907773c98a05699b19512faebd976edf7416ff",
+      "file": "08_council_xai.json",
+      "n": 8,
+      "sha256": "2645124565d392a03bd3066aa9f779b3c5c554f15f82e0c7e5b2c33f9d737596"
+    },
+    {
+      "chain": "1c42aaac26014e264d92c2d484b3369b15a32b21bf0b6f9fc03b5db42161711d",
+      "file": "09_sketch_meta.json",
+      "n": 9,
+      "sha256": "5d87d19236c2137f1f294b8aa781a605518d7c307fa13e1ffb1395fcc5196f0d"
+    },
+    {
+      "chain": "3a2a2f9dec3f5bc591bb3c3ace6fbde0d5dda24441cfc394fde96485c2721b79",
+      "file": "10_sketch_xai.json",
+      "n": 10,
+      "sha256": "1d81f403ee78194580ce8434e8ffde7d8eeab6c537589dd743fa4d52e16b5d5e"
+    },
+    {
+      "chain": "97d7cf65e60ae563e22802d0c5ffc0833d561ccf0d12d837777730c639244f7b",
+      "file": "11_sketch_google.json",
+      "n": 11,
+      "sha256": "0ad29668d481b6894badc6b4da4fdefdb74291a24b9d5fdc95271145266b8749"
+    },
+    {
+      "chain": "04f548e7be325f1b5b176669fef536c8fbbaf022bd7ceafe2775ff4461943325",
+      "file": "12_sketch_microsoft.json",
+      "n": 12,
+      "sha256": "5ebb3b379a022dd93a8d60eb46df2f83a6142849f6ff9b4d6af35c6dc8188e66"
+    },
+    {
+      "chain": "70e24a5d38d04311c77bca6195213acd7e9b70d7d955964a9560ef3a154a47a1",
+      "file": "13_sketch_openai.json",
+      "n": 13,
+      "sha256": "4b5d33d49cc9e8caa6c9516361b2829abc07fbf0dbfa535369d81d03d87d31c4"
+    },
+    {
+      "chain": "e86107867dd1b3b69e20bd4d317a42c971efff7209cf3d068e14a8cd385aa231",
+      "file": "14_director_run.json",
+      "n": 14,
+      "sha256": "a583fdaa85a446fd6b5e976630fc2ae8d86dc3311f5b1792dacee1ca5b7c68d7"
+    },
+    {
+      "chain": "7189f70a344ba78dbf4410b9241f3c5af2a0d053825b09371f4704568273a42e",
+      "file": "15_merge_run.json",
+      "n": 15,
+      "sha256": "ad990bccf2d84effcd5870325c1347e6562976513db79467d35bc91a4ebe5d62"
+    }
+  ],
+  "run_id": "20261015-115328-0f0104",
+  "sanitized_chain_head": "7741fc2d7ed469d756c73542065f48fc47981d960db79e1ccb881d3a5d780d11",
+  "schema": "brakko-public-export-v1",
+  "source": "OpenRouter via the user-operated MergeMeme app",
+  "steps": [
+    {
+      "chain": "10d4f351b202098ecfb61d588bd6f5236e33984cefe895bdef7057dc7809c37c",
+      "generation_id": null,
+      "kind": "setup",
+      "lab": null,
+      "model": null,
+      "n": 1,
+      "original_sha256": "6f1ca0d7dcf56e7ab9ae78b08333a1d7b7e400d593b3dfd92ae68419cdfdd41f",
+      "path": "evidence/trail/01_setup_run.json",
+      "sha256": "c3701e88e8609130fe0a521fc6509a208ebb84dff25b8da8d5fe27884b06838e",
+      "status": "success"
+    },
+    {
+      "chain": "832f081739178daa0c3ce6f85e073769301d37e1e4e15fa0c65c79c33760a048",
+      "generation_id": "gen-1792065196-yguuyz1uqRVqBNGJheBo",
+      "kind": "council",
+      "lab": "microsoft",
+      "model": "microsoft/phi-4",
+      "n": 2,
+      "original_sha256": "043016e61d7eb369e31e5d2298b65f531ed6fcac8831074fda51d78a06140384",
+      "path": "evidence/trail/02_council_microsoft.json",
+      "sha256": "3ddacb60cb520898379e16af92baf2b3fb1b127878e777eeca88b812df8fa9b3",
+      "status": "success"
+    },
+    {
+      "chain": "8a739a5436f8ac92d75964338dcb16aa408fe2731540e9979d633c3dd897a9d5",
+      "generation_id": "gen-1792065196-skDBLX0DJW1EuhHOtBmm",
+      "kind": "council",
+      "lab": "nvidia",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "n": 3,
+      "original_sha256": "fde82c2879b7040b29b9a15a5155bf87fef53bad5c5e7d021f9b2fa2299fe039",
+      "path": "evidence/trail/03_council_nvidia.json",
+      "sha256": "52ee8fe47189998c0fa0f5fc1b2c19a76200e35217d328162b9c0942df8bcc79",
+      "status": "success"
+    },
+    {
+      "chain": "3dca00e189945788900053253d873b96eb0efee70cf73d6fd439447f4756510c",
+      "generation_id": "gen-1792065197-DEMYppNdtEb9Md1UOfaV",
+      "kind": "council",
+      "lab": "google",
+      "model": "google/gemini-4-argon",
+      "n": 4,
+      "original_sha256": "3d8f69e4bc5c5e34142d9cdf47c38c84eb03b93b08467e6f0f87bffeb4f55fc0",
+      "path": "evidence/trail/04_council_google.json",
+      "sha256": "f0e28d0099cfce0890e88e59d032d5402090135a45586c022a5c89773fdcd812",
+      "status": "success"
+    },
+    {
+      "chain": "9ff2601f4b039b958bb25aa3abd2f7c04df5180f49bac0b136e56563632ab268",
+      "generation_id": "gen-1792065196-qT1YAAP8D7UzLuuuWU0K",
+      "kind": "council",
+      "lab": "meta",
+      "model": "meta/muse-wonder",
+      "n": 5,
+      "original_sha256": "e144a91a2648a9cdf0944de5853de7df9fc7ec74b01e12b7d564a7f064d8399d",
+      "path": "evidence/trail/05_council_meta.json",
+      "sha256": "bf072226d062cc91f40cae546673c7fce04497ce6a766f7d829094f80bf5de96",
+      "status": "success"
+    },
+    {
+      "chain": "2f4eeab25696c6038d2c55674de1f6bfb1125f00eca726a461a2d7495e1e0eba",
+      "generation_id": "gen-1792065196-ueIkCknsiOo3dMImUczW",
+      "kind": "council",
+      "lab": "openai",
+      "model": "openai/gpt-6.1-sol-pro",
+      "n": 6,
+      "original_sha256": "cc861e0748008ef748bad75968b84f95c6c99fdbdbf1cf72b0c9c92bd25d00ab",
+      "path": "evidence/trail/06_council_openai.json",
+      "sha256": "cb1943f5f86d081b800f6cd29f3e6331699d6e76ad1145cbdb3f5b146fbbc10b",
+      "status": "success"
+    },
+    {
+      "chain": "d48273c15bcdf92b301e8e7bd82f340057cf10d836d8015343b3ddaf980d7031",
+      "generation_id": "gen-1792065260-9eQyWRCqTgdZ5xeWvLRr",
+      "kind": "council",
+      "lab": "anthropic",
+      "model": "anthropic/claude-opus-5.5",
+      "n": 7,
+      "original_sha256": "fc32b106d95f513b9618b4e7367cfa92d273fab9537e35266fef52cb4f1f9315",
+      "path": "evidence/trail/07_council_anthropic.json",
+      "sha256": "e6773122a506e90abf054a791833100ca619d0367f2e1bbb064b82a55aabbbfe",
+      "status": "success"
+    },
+    {
+      "chain": "5a6785938740a8621ccd112e3a097f0cc04cffbc2d13d3883f62ca5ffaa8eb76",
+      "generation_id": "gen-1792065196-4RvhtexKh1gWVipZlRiD",
+      "kind": "council",
+      "lab": "xai",
+      "model": "x-ai/grok-4.7",
+      "n": 8,
+      "original_sha256": "2645124565d392a03bd3066aa9f779b3c5c554f15f82e0c7e5b2c33f9d737596",
+      "path": "evidence/trail/08_council_xai.json",
+      "sha256": "ae0acb7ae5b2c2365df23242f1df7112dd361ea6c34457b2e49f72c6972226e0",
+      "status": "success"
+    },
+    {
+      "chain": "a06923dce06bf8873d61c86f7b6b36c2a9e4c12b72277fcb996518cbf4ae0204",
+      "generation_id": null,
+      "kind": "sketch",
+      "lab": "meta",
+      "model": "meta/muse-image",
+      "n": 9,
+      "original_sha256": "5d87d19236c2137f1f294b8aa781a605518d7c307fa13e1ffb1395fcc5196f0d",
+      "path": "evidence/trail/09_sketch_meta.json",
+      "sha256": "f30e864fbe65c902278ac125f86f0b356447c2c84e65f9cf22b54fb6098962c0",
+      "status": "skipped"
+    },
+    {
+      "chain": "4a7135dea6c44f2281c9b35318e4f62569e5054e6128fea92424c392fd7e5337",
+      "generation_id": null,
+      "kind": "sketch",
+      "lab": "xai",
+      "model": "x-ai/grok-imagine-image-quality",
+      "n": 10,
+      "original_sha256": "1d81f403ee78194580ce8434e8ffde7d8eeab6c537589dd743fa4d52e16b5d5e",
+      "path": "evidence/trail/10_sketch_xai.json",
+      "sha256": "6ef6de7fdbbc913706b86e26dbb62bf40415208bbf34dfc541030e58eb0b7af7",
+      "status": "success"
+    },
+    {
+      "chain": "c34a43bb21eedc1a32900d91544b97324fdb247fcc51972232ec5679b0e2a425",
+      "generation_id": null,
+      "kind": "sketch",
+      "lab": "google",
+      "model": "google/gemini-3-pro-image",
+      "n": 11,
+      "original_sha256": "0ad29668d481b6894badc6b4da4fdefdb74291a24b9d5fdc95271145266b8749",
+      "path": "evidence/trail/11_sketch_google.json",
+      "sha256": "f6c2ebc000e00a416c6487b77a7cdbbb5eb6b227a987f75d2d96451c49dab213",
+      "status": "success"
+    },
+    {
+      "chain": "cada3a11d3dbfed0fb14ede6fa44a28c451e97135a55b3ff82d05ebcd65d6cda",
+      "generation_id": null,
+      "kind": "sketch",
+      "lab": "microsoft",
+      "model": "microsoft/mai-image-2.6",
+      "n": 12,
+      "original_sha256": "5ebb3b379a022dd93a8d60eb46df2f83a6142849f6ff9b4d6af35c6dc8188e66",
+      "path": "evidence/trail/12_sketch_microsoft.json",
+      "sha256": "4f3f5de05b3bb06443608848899f658209d5546645a33ca846f66332740b5e73",
+      "status": "success"
+    },
+    {
+      "chain": "c824699efe39de6323d4e83f49229ecd8874e0f1bf4402f5afad9e88690906ba",
+      "generation_id": null,
+      "kind": "sketch",
+      "lab": "openai",
+      "model": "openai/gpt-image-2.5-sunburst",
+      "n": 13,
+      "original_sha256": "4b5d33d49cc9e8caa6c9516361b2829abc07fbf0dbfa535369d81d03d87d31c4",
+      "path": "evidence/trail/13_sketch_openai.json",
+      "sha256": "d9e5ea057f77c0c5baf8623c6edd6f8b79ef209a237dc52cf5dd7f5102996e7b",
+      "status": "success"
+    },
+    {
+      "chain": "1d440fa56e43a90355fe7d666f98b55a75dcf77b6d597b93ea77a9be7af332b7",
+      "generation_id": "gen-1792065487-fHb5XzSjgqkpcUiLVsvz",
+      "kind": "director",
+      "lab": null,
+      "model": "anthropic/claude-fable-5.1",
+      "n": 14,
+      "original_sha256": "a583fdaa85a446fd6b5e976630fc2ae8d86dc3311f5b1792dacee1ca5b7c68d7",
+      "path": "evidence/trail/14_director_run.json",
+      "sha256": "edb2cce4c1849fd09630246989369eccbb5851369c467f03c6c48723714910a9",
+      "status": "success"
+    },
+    {
+      "chain": "7741fc2d7ed469d756c73542065f48fc47981d960db79e1ccb881d3a5d780d11",
+      "generation_id": null,
+      "kind": "merge",
+      "lab": null,
+      "model": "openai/gpt-image-2.5-sunburst",
+      "n": 15,
+      "original_sha256": "ad990bccf2d84effcd5870325c1347e6562976513db79467d35bc91a4ebe5d62",
+      "path": "evidence/trail/15_merge_run.json",
+      "sha256": "4e4d493ec8119605342de9a4042f7ee34f583d9baee69b9336753bed3b4d1380",
+      "status": "success"
+    }
+  ]
+}
