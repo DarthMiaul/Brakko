@@ -1,0 +1,16 @@
+# Never publish secrets, local state or unreviewed captures
+.env
+.env.*
+!.env.example
+**/*_key*
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets.json
+uploads/
+output/
+*.log
+__pycache__/
+.DS_Store
+Thumbs.db
